@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Website Creator | Snooky</title>
 
+<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -15,25 +16,26 @@
   font-family:'Poppins',sans-serif;
 }
 
+/* BODY & BACKGROUND */
 body{
   background: url('https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
   background-size: cover;
   color:#fff;
   line-height:1.6;
-  scroll-behavior:smooth;
+  position: relative;
+  scroll-behavior: smooth;
 }
 
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.55);
-  z-index:-1;
-}
-
-section{
-  padding:80px 20px;
-  text-align:center;
+/* DARK OVERLAY */
+body::before {
+  content: "";
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.5);
+  z-index: -1;
 }
 
 /* HERO */
@@ -43,11 +45,21 @@ section{
   flex-direction:column;
   justify-content:center;
   align-items:center;
+  text-align:center;
 }
 
-.hero h1{font-size:2.5rem}
-.hero span{color:#38bdf8}
-.hero p{margin-top:15px;opacity:.9}
+.hero h1{
+  font-size:2.5rem;
+}
+
+.hero span{
+  color:#38bdf8;
+}
+
+.hero p{
+  margin-top:15px;
+  opacity:.9;
+}
 
 /* CTA */
 .cta{
@@ -59,18 +71,11 @@ section{
   border-radius:50px;
   font-weight:600;
   transition:.3s;
+  display:inline-block;
 }
 
-.cta:hover{transform:scale(1.05)}
-
-.pulse{
-  animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-  0%{transform:scale(1)}
-  50%{transform:scale(1.05)}
-  100%{transform:scale(1)}
+.cta:hover{
+  transform:scale(1.05);
 }
 
 /* CARDS */
@@ -86,17 +91,97 @@ section{
   padding:30px;
   border-radius:15px;
   transition:.3s;
+  position:relative;
 }
 
-.card:hover{transform:translateY(-10px)}
-
-/* PROJECTS */
-.projects{
-  max-width:600px;
-  margin:40px auto 0;
+.card:hover{
+  transform:translateY(-10px);
 }
 
-.project{
+/* POPULAR BADGE */
+.popular-badge{
+  position:absolute;
+  top:18px;
+  right:18px;
+  background:#facc15;
+  color:#000;
+  font-size:.75rem;
+  font-weight:700;
+  padding:6px 12px;
+  border-radius:999px;
+  box-shadow:0 4px 10px rgba(0,0,0,.3);
+}
+
+/* CHECK / CROSS ICONS */
+.feature-yes::before{
+  content:"✅";
+  margin-right:8px;
+}
+
+.feature-no::before{
+  content:"❌";
+  margin-right:8px;
+  opacity:.7;
+}
+
+/* UPGRADE NOTE UNDER FREE */
+.upgrade-note{
+  margin-top:12px;
+  font-size:.85rem;
+  color:#facc15;
+  font-weight:600;
+  text-align:left;
+  opacity:.9;
+}
+
+/* PRICING COUNTDOWN */
+.pricing-countdown{
+  margin:15px 0;
+  padding:10px 15px;
+  background:rgba(250,204,21,.15);
+  border:1px solid #facc15;
+  border-radius:10px;
+  font-weight:600;
+  color:#facc15;
+  font-size:.9rem;
+  text-align:center;
+}
+
+/* LAST 24 HOURS ALERT */
+.last-hours{
+  background:rgba(239,68,68,.15);
+  border-color:#ef4444;
+  color:#ef4444;
+  animation:flashRed 1s infinite;
+}
+
+@keyframes flashRed{
+  0%{ box-shadow:0 0 0 0 rgba(239,68,68,.6); }
+  70%{ box-shadow:0 0 0 12px rgba(239,68,68,0); }
+  100%{ box-shadow:0 0 0 0 rgba(239,68,68,0); }
+}
+
+/* CTA URGENCY */
+.cta-urgent{
+  background:#ef4444 !important;
+  color:#fff !important;
+}
+
+/* HERO MOBILE */
+@media(max-width:600px){
+  .hero h1{font-size:2rem;}
+  .cards{
+    grid-template-columns:1fr;
+  }
+}
+
+/* OTHER SECTIONS */
+section{
+  padding:80px 20px;
+  text-align:center;
+}
+
+.projects a{
   display:block;
   background:#1e293b;
   margin-bottom:15px;
@@ -107,20 +192,37 @@ section{
   transition:.3s;
 }
 
-.project:hover{
+.projects a:hover{
   background:#38bdf8;
   color:#000;
 }
 
-/* FINAL CTA */
-.final-cta,
 footer{
   background:#020617;
-}
-
-footer{
   padding:20px;
   font-size:.9rem;
+  text-align:center;
+}
+
+/* PROMO BANNER */
+#promo-banner {
+  position: fixed;
+  top: -60px;
+  left: 0;
+  width: 100%;
+  background: #facc15;
+  color: #000;
+  text-align: center;
+  padding: 15px 10px;
+  font-weight: 600;
+  z-index: 9999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  animation: slideDown 1s forwards 0.5s;
+}
+
+@keyframes slideDown {
+  from { top: -60px; }
+  to { top: 0; }
 }
 
 /* REVEAL ANIMATION */
@@ -130,129 +232,267 @@ footer{
   transition:1s;
 }
 
-/* PROMO BANNER */
-#promo-banner{
-  position:fixed;
-  top:-60px;
-  width:100%;
-  background:#facc15;
-  color:#000;
-  padding:15px;
-  font-weight:600;
-  text-align:center;
-  z-index:9999;
-  animation:slideDown 1s forwards .5s;
-}
-
-@keyframes slideDown{
-  to{top:0}
-}
-
-@media(max-width:600px){
-  .hero h1{font-size:2rem}
+.reveal-visible{
+  opacity:1;
+  transform:translateY(0);
 }
 </style>
 </head>
-
 <body>
 
-<!-- PROMO -->
+<!-- PROMO BANNER -->
 <div id="promo-banner">
-🎉 New Year Promo! Free Website Slots Available — Limited Time!
+  🎉 New Year Promo! 20% OFF on paid websites until <strong>Jan 3, 2026</strong>! ⏰
+  <span id="countdown"></span>
 </div>
 
 <!-- HERO -->
-<section class="hero">
+<section id="hero" class="hero">
   <h1 class="reveal">I Build Websites That <span>Convert</span></h1>
-  <p class="reveal">Landing Pages • Business Websites • Portfolios</p>
-
-  <h2 class="reveal" style="margin-top:20px;color:#facc15;">
-    🚀 Get Your <strong>FREE Website</strong>
-  </h2>
-
-  <a class="cta pulse"
-     href="https://m.me/delosreyessnooky"
-     target="_blank">
-     Start on Messenger 🚀
-  </a>
+  <p class="reveal" style="margin-top:15px;">Landing Pages • Funnels • Business Websites • Portfolios</p>
+  <a class="cta pulse reveal" href="#pricing">💬 Claim Your FREE Website</a>
 </section>
 
 <!-- SERVICES -->
-<section>
+<section id="services">
   <h2 class="reveal">What I Create</h2>
   <div class="cards">
     <div class="card reveal">🚀 Landing Pages</div>
-    <div class="card reveal">🏪 Business Websites</div>
-    <div class="card reveal">💼 Portfolio Websites</div>
     <div class="card reveal">🛒 Affiliate Funnels</div>
+    <div class="card reveal">🏪 Business Websites</div>
+    <div class="card reveal">💬 Portfolio Website</div>
   </div>
 </section>
 
-<!-- OTHER SERVICES -->
-<section>
-  <h2 class="reveal">Other Services</h2>
-  <div class="cards">
+<!-- PRICING -->
+<section id="pricing">
+  <h2 class="reveal">Pricing</h2>
+  <p class="reveal" style="opacity:.85; margin-top:10px;">Start for free. Upgrade anytime when you’re ready to grow.</p>
+
+  <div id="pricing-expired" style="display:none; margin-top:20px;">
+    <h2 class="reveal">Promo Has Ended</h2>
+    <p style="opacity:.85; margin-top:10px;">
+      The limited-time offer has expired, but you can still request a custom quote.
+    </p>
+    <a class="cta pulse" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:20px; display:inline-block;">
+      💬 Request Custom Website
+    </a>
+  </div>
+
+  <div class="cards" id="pricing-cards">
+
+    <!-- FREE PLAN -->
     <div class="card reveal">
-      <h3>📄 Resume & CV Design</h3>
-      <p>Professional & ATS-friendly</p>
+      <h3>🎁 Free Website</h3>
+      <p style="opacity:.85;">Perfect for beginners</p>
+      <p class="price">$0</p>
+
+      <table style="width:100%; margin-top:15px; text-align:left; font-size:.95rem;">
+        <tr><td class="feature-yes">1 Page Website</td></tr>
+        <tr><td class="feature-yes">Mobile Responsive</td></tr>
+        <tr><td class="feature-yes">Stock Images</td></tr>
+        <tr><td class="feature-yes">Messenger Button</td></tr>
+        <tr><td class="feature-no">Custom Domain</td></tr>
+        <tr><td class="feature-no">SEO Setup</td></tr>
+      </table>
+
+      <p class="upgrade-note">🎯 Upgrade anytime to Starter or Business plans!</p>
+
+      <a class="cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:20px; display:inline-block;">
+        Claim Free Website
+      </a>
     </div>
+
+    <!-- STARTER PLAN (MOST POPULAR) -->
+    <div class="card reveal featured" style="position:relative;">
+      <span class="popular-badge">Most Popular</span>
+      <h3>✨ Starter Website</h3>
+      <p style="opacity:.85;">For freelancers & small businesses</p>
+      <p class="price">$10 – $60</p>
+
+      <div class="pricing-countdown" id="pricing-box">
+        ⏳ Promo ends in <span id="pricing-timer">00d 00h 00m 00s</span>
+      </div>
+
+      <table style="width:100%; margin-top:15px; text-align:left; font-size:.95rem;">
+        <tr><td class="feature-yes">3–5 Pages</td></tr>
+        <tr><td class="feature-yes">Custom Design</td></tr>
+        <tr><td class="feature-yes">SEO Ready</td></tr>
+        <tr><td class="feature-yes">Contact Form</td></tr>
+        <tr><td class="feature-yes">Messenger Integration</td></tr>
+      </table>
+
+      <a class="cta pulse" id="starter-cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:20px; display:inline-block;">
+        Order Starter
+      </a>
+    </div>
+
+    <!-- BUSINESS PLAN -->
     <div class="card reveal">
-      <h3>📑 Business Documents</h3>
-      <p>Invoices, proposals & letters</p>
+      <h3>🏢 Business Website</h3>
+      <p style="opacity:.85;">For growing brands</p>
+      <p class="price">$65 – $200</p>
+
+      <table style="width:100%; margin-top:15px; text-align:left; font-size:.95rem;">
+        <tr><td class="feature-yes">Custom Pages & Layout</td></tr>
+        <tr><td class="feature-yes">SEO Optimization</td></tr>
+        <tr><td class="feature-yes">Analytics Setup</td></tr>
+        <tr><td class="feature-yes">Messenger Automation</td></tr>
+        <tr><td class="feature-yes">Optional Payment Integration</td></tr>
+      </table>
+
+      <a class="cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:20px; display:inline-block;">
+        Get Started
+      </a>
     </div>
-    <div class="card reveal">
-      <h3>🖊 Document Editing</h3>
-      <p>PDF, Word, Excel & PPT</p>
-    </div>
+
   </div>
 </section>
 
 <!-- PORTFOLIO -->
-<section>
+<section id="portfolio">
   <h2 class="reveal">Live Projects</h2>
   <div class="projects">
-    <a class="project reveal" href="https://dsnooky.github.io/myportfolio">Portfolio Website</a>
-    <a class="project reveal" href="https://workwithsnooky.github.io/siomaiking">Food Business Website</a>
-    <a class="project reveal" href="https://dsnooky.github.io/landingpagetemplate/">Landing Page</a>
+    <a href="https://dsnooky.github.io/myportfolio" class="reveal">Portfolio Website</a>
+    <a href="https://workwithsnooky.github.io/siomaiking" class="reveal">Food Business Website</a>
+    <a href="https://dsnooky.github.io/landingpagetemplate/" class="reveal">Landing Page</a>
   </div>
 </section>
 
-<!-- WHY -->
-<section>
-  <h2 class="reveal">Why Clients Choose Me</h2>
-  <ul>
-    <li class="reveal">✅ Mobile-First Design</li>
-    <li class="reveal">✅ Fast Loading Pages</li>
-    <li class="reveal">✅ SEO Ready</li>
-    <li class="reveal">✅ Messenger Automation</li>
-  </ul>
+<!-- OTHER SERVICES -->
+<section id="otherservices">
+  <h2 class="reveal">Other Services I Offer</h2>
+  <div class="cards">
+    <div class="card reveal">
+      <h3>📄 Resume & CV Design</h3>
+      <p>Professional resumes to land your dream job</p>
+      <p><strong>$2–$10</strong></p>
+    </div>
+    <div class="card reveal">
+      <h3>📑 Business Documents</h3>
+      <p>Invoices, proposals, and official letters</p>
+      <p><strong>$5+</strong></p>
+    </div>
+    <div class="card reveal">
+      <h3>🖊 PDF & Document Editing</h3>
+      <p>Format, convert, or edit your documents</p>
+      <p><strong>$5+</strong></p>
+    </div>
+  </div>
 </section>
 
-<!-- CONTACT -->
-<section class="final-cta">
-  <h2 class="reveal">Ready to Start?</h2>
-  <a class="cta pulse"
-     href="https://m.me/delosreyessnooky"
-     target="_blank">
-     Message Me Now 🚀
+<!-- FINAL CTA -->
+<section id="contact" class="final-cta">
+  <h2 class="reveal">Want a Website That Sells?</h2>
+  <a class="cta pulse" href="https://m.me/delosreyessnooky" target="_blank">
+    Start on Messenger 🚀
   </a>
 </section>
 
 <footer>
-© 2025 Snooky Web Creator
+  © 2025 Snooky Web Creator
 </footer>
 
+<!-- ALERT SOUND -->
+<audio id="alert-sound">
+  <source src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-tone-996.mp3" type="audio/mpeg">
+</audio>
+
 <script>
+// Reveal elements on scroll
 function revealOnScroll(){
   document.querySelectorAll(".reveal").forEach(el=>{
-    if(el.getBoundingClientRect().top < window.innerHeight - 40){
-      el.style.opacity=1;
-      el.style.transform="translateY(0)";
+    const rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 40){
+      el.classList.add("reveal-visible");
     }
   });
 }
-window.addEventListener("scroll",revealOnScroll);
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("resize", revealOnScroll);
 revealOnScroll();
+
+// Promo countdown (top banner)
+function updateCountdown(){
+  const countdownEl = document.getElementById("countdown");
+  const now = new Date();
+  const promoEnd = new Date('2026-01-03T23:59:59');
+  const diff = promoEnd - now;
+
+  if(diff <= 0){
+    document.getElementById("promo-banner").style.display="none";
+    clearInterval(timerInterval);
+    return;
+  }
+
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff / (1000*60*60)) % 24);
+  const minutes = Math.floor((diff / (1000*60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  countdownEl.innerHTML = `(${days}d ${hours}h ${minutes}m ${seconds}s left!)`;
+}
+
+const timerInterval = setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Pricing countdown, last 24h flash, last 1h alert, auto-hide
+let lastHourAlerted = false;
+function updatePricingCountdown(){
+  const pricingSection = document.getElementById("pricing-cards");
+  const expiredBox = document.getElementById("pricing-expired");
+  const timer = document.getElementById("pricing-timer");
+  const box = document.getElementById("pricing-box");
+  const cta = document.getElementById("starter-cta");
+  const sound = document.getElementById("alert-sound");
+
+  const promoEnd = new Date('2026-01-03T23:59:59');
+  const now = new Date();
+  const diff = promoEnd - now;
+
+  // Expired
+  if(diff <= 0){
+    if(pricingSection){
+      pricingSection.style.display="none";
+    }
+    if(expiredBox){
+      expiredBox.style.display="block";
+    }
+    if(timer) timer.innerHTML="Expired";
+    if(cta){
+      cta.innerHTML="Promo Ended";
+      cta.classList.add("cta-urgent");
+    }
+    clearInterval(window.pricingInterval);
+    return;
+  }
+
+  // Countdown
+  if(timer){
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff / (1000*60*60)) % 24);
+    const m = Math.floor((diff / (1000*60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+    timer.innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+  }
+
+  // Last 24 hours
+  if(diff <= 86400000 && box && cta){
+    box.classList.add("last-hours");
+    cta.classList.add("cta-urgent");
+    cta.innerHTML="⚡ Last Chance – Order Now";
+  }
+
+  // Last 1 hour alert
+  if(diff <= 3600000 && !lastHourAlerted){
+    lastHourAlerted=true;
+    if(sound){ sound.volume=0.7; sound.play().catch(()=>{}); }
+    if(navigator.vibrate){ navigator.vibrate([300,200,300,200,600]); }
+  }
+}
+
+window.pricingInterval = setInterval(updatePricingCountdown, 1000);
+updatePricingCountdown();
 </script>
 
 </body>
