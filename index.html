@@ -294,6 +294,61 @@ footer{
   from { top: -60px; }
   to { top: 0; }
 }
+  /* WHY UPGRADE CTA */
+.upgrade-cta{
+  text-align:center;
+  margin-top:25px;
+}
+
+.upgrade-btn{
+  background:#facc15;
+  color:#000;
+  font-weight:700;
+}
+
+  /* STRONG PULSE FOR UPGRADE */
+.upgrade-btn{
+  animation: upgradePulse 1.8s infinite;
+}
+
+@keyframes upgradePulse{
+  0%{ box-shadow:0 0 0 0 rgba(250,204,21,.6); }
+  70%{ box-shadow:0 0 0 20px rgba(250,204,21,0); }
+  100%{ box-shadow:0 0 0 0 rgba(250,204,21,0); }
+}
+  /* MOBILE ACCORDION */
+@media(max-width:700px){
+  .compare table,
+  .compare thead,
+  .compare tbody,
+  .compare th,
+  .compare td,
+  .compare tr{
+    display:block;
+  }
+
+  .compare tr{
+    margin-bottom:10px;
+    background:#020617;
+    border-radius:10px;
+    padding:10px;
+    cursor:pointer;
+  }
+
+  .compare td{
+    display:none;
+    text-align:left;
+    padding:8px 0;
+  }
+
+  .compare tr.active td{
+    display:block;
+  }
+
+  .compare th{
+    display:none;
+  }
+}
 
 /* MOBILE HERO */
 @media(max-width:600px){
@@ -351,6 +406,14 @@ footer{
 
 <!-- FREE COMPARISON -->
 <div id="free" class="compare show">
+  <div class="upgrade-cta reveal">
+  <p style="margin-bottom:15px;">
+    ⚠️ Free is great to start — but <strong>paid plans help you get clients, rank on Google, and grow faster.</strong>
+  </p>
+  <a href="#pricing" class="cta upgrade-btn pulse">
+    🚀 Upgrade to Paid Website
+  </a>
+</div>
   <table>
     <tr><th>Features</th><th>Included</th></tr>
     <tr><td>1 Page Website</td><td>✅</td></tr>
@@ -551,6 +614,21 @@ updateCountdown();
   document.querySelectorAll('.toggle-btn button').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   }
+
+  // Mobile accordion toggle
+document.querySelectorAll('.compare tr').forEach(row=>{
+  row.addEventListener('click',()=>{
+    row.classList.toggle('active');
+  });
+});
+
+  document.querySelectorAll('.toggle-btn button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.upgrade-btn').forEach(b=>{
+      b.style.animation='none';
+    });
+  });
+});
 </script>
 
 </body>
