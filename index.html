@@ -15,6 +15,68 @@
   box-sizing:border-box;
   font-family:'Poppins',sans-serif;
 }
+  /* COMPARISON TOGGLE */
+.toggle-wrap{
+  display:flex;
+  justify-content:center;
+  margin:25px 0;
+}
+
+.toggle-btn{
+  background:#020617;
+  border:2px solid #38bdf8;
+  border-radius:50px;
+  overflow:hidden;
+  display:flex;
+}
+
+.toggle-btn button{
+  background:transparent;
+  color:#fff;
+  border:none;
+  padding:10px 25px;
+  cursor:pointer;
+  font-weight:600;
+  transition:.3s;
+}
+
+.toggle-btn button.active{
+  background:#38bdf8;
+  color:#000;
+}
+
+.compare{
+  display:none;
+  max-width:900px;
+  margin:30px auto 0;
+  background:#1e293b;
+  border-radius:15px;
+  padding:25px;
+  animation:fade 0.6s ease;
+}
+
+.compare table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.compare th, .compare td{
+  padding:12px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.compare th{
+  text-align:left;
+  color:#38bdf8;
+}
+
+.compare td{
+  text-align:center;
+}
+
+.compare.show{
+  display:block;
+}
 
 /* BODY & BACKGROUND */
 body{
@@ -280,6 +342,40 @@ footer{
 <!-- PRICING -->
 <section id="pricing">
   <h2 class="reveal">Pricing Plans</h2>
+  <div class="toggle-wrap reveal">
+  <div class="toggle-btn">
+    <button class="active" onclick="showCompare('free',this)">FREE</button>
+    <button onclick="showCompare('paid',this)">PAID</button>
+  </div>
+</div>
+
+<!-- FREE COMPARISON -->
+<div id="free" class="compare show">
+  <table>
+    <tr><th>Features</th><th>Included</th></tr>
+    <tr><td>1 Page Website</td><td>✅</td></tr>
+    <tr><td>Responsive Design</td><td>✅</td></tr>
+    <tr><td>Stock Images</td><td>✅</td></tr>
+    <tr><td>Messenger Button</td><td>✅</td></tr>
+    <tr><td>Custom Domain</td><td>❌</td></tr>
+    <tr><td>SEO Setup</td><td>❌</td></tr>
+    <tr><td>Revisions</td><td>1</td></tr>
+  </table>
+</div>
+
+<!-- PAID COMPARISON -->
+<div id="paid" class="compare">
+  <table>
+    <tr><th>Features</th><th>Included</th></tr>
+    <tr><td>Multi-page Website</td><td>✅</td></tr>
+    <tr><td>Custom Design</td><td>✅</td></tr>
+    <tr><td>SEO Optimization</td><td>✅</td></tr>
+    <tr><td>Contact Form</td><td>✅</td></tr>
+    <tr><td>Messenger Automation</td><td>✅</td></tr>
+    <tr><td>Custom Domain</td><td>Optional</td></tr>
+    <tr><td>Revisions</td><td>Unlimited</td></tr>
+  </table>
+</div>
 
   <div class="cards">
     <div class="card reveal">
@@ -447,6 +543,14 @@ function updateCountdown(){
 
 const timerInterval = setInterval(updateCountdown, 1000);
 updateCountdown();
+
+  function showCompare(id,btn){
+  document.querySelectorAll('.compare').forEach(c=>c.classList.remove('show'));
+  document.getElementById(id).classList.add('show');
+
+  document.querySelectorAll('.toggle-btn button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  }
 </script>
 
 </body>
