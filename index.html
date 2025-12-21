@@ -9,251 +9,51 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
-
-/* BODY & BACKGROUND */
-body{
-  background: url('https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
-  background-size: cover;
-  color:#fff;
-  line-height:1.6;
-  position: relative;
-  scroll-behavior: smooth;
-}
-
-/* DARK OVERLAY */
-body::before {
-  content: "";
-  position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.5);
-  z-index: -1;
-}
-
-/* HERO */
-.hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-}
-
-.hero h1{
-  font-size:2.5rem;
-}
-
-.hero span{
-  color:#38bdf8;
-}
-
-.hero p{
-  margin-top:15px;
-  opacity:.9;
-}
-
-/* CTA */
-.cta{
-  margin-top:25px;
-  padding:15px 35px;
-  background:#38bdf8;
-  color:#000;
-  text-decoration:none;
-  border-radius:50px;
-  font-weight:600;
-  transition:.3s;
-  display:inline-block;
-}
-
-.cta:hover{
-  transform:scale(1.05);
-}
-
-/* CARDS */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-  margin-top:40px;
-}
-
-.card{
-  background:#1e293b;
-  padding:30px;
-  border-radius:15px;
-  transition:.3s;
-  position:relative;
-}
-
-.card:hover{
-  transform:translateY(-10px);
-}
-
-/* POPULAR BADGE */
-.popular-badge{
-  position:absolute;
-  top:18px;
-  right:18px;
-  background:#facc15;
-  color:#000;
-  font-size:.75rem;
-  font-weight:700;
-  padding:6px 12px;
-  border-radius:999px;
-  box-shadow:0 4px 10px rgba(0,0,0,.3);
-}
-
-/* CHECK / CROSS ICONS */
-.feature-yes::before{
-  content:"✅";
-  margin-right:8px;
-}
-
-.feature-no::before{
-  content:"❌";
-  margin-right:8px;
-  opacity:.7;
-}
-
-/* UPGRADE NOTE UNDER FREE */
-.upgrade-note{
-  margin-top:12px;
-  font-size:.85rem;
-  color:#facc15;
-  font-weight:600;
-  text-align:left;
-  opacity:.9;
-}
-
-/* PRICING COUNTDOWN */
-.pricing-countdown{
-  margin:15px 0;
-  padding:10px 15px;
-  background:rgba(250,204,21,.15);
-  border:1px solid #facc15;
-  border-radius:10px;
-  font-weight:600;
-  color:#facc15;
-  font-size:.9rem;
-  text-align:center;
-}
-
-/* LAST 24 HOURS ALERT */
-.last-hours{
-  background:rgba(239,68,68,.15);
-  border-color:#ef4444;
-  color:#ef4444;
-  animation:flashRed 1s infinite;
-}
-
-@keyframes flashRed{
-  0%{ box-shadow:0 0 0 0 rgba(239,68,68,.6); }
-  70%{ box-shadow:0 0 0 12px rgba(239,68,68,0); }
-  100%{ box-shadow:0 0 0 0 rgba(239,68,68,0); }
-}
-
-/* CTA URGENCY */
-.cta-urgent{
-  background:#ef4444 !important;
-  color:#fff !important;
-}
-
-/* HERO MOBILE */
-@media(max-width:600px){
-  .hero h1{font-size:2rem;}
-  .cards{
-    grid-template-columns:1fr;
-  }
-}
-
-/* OTHER SECTIONS */
-section{
-  padding:80px 20px;
-  text-align:center;
-}
-
-.projects a{
-  display:block;
-  background:#1e293b;
-  margin-bottom:15px;
-  padding:20px;
-  border-radius:12px;
-  text-decoration:none;
-  color:#fff;
-  transition:.3s;
-}
-
-.projects a:hover{
-  background:#38bdf8;
-  color:#000;
-}
-
-footer{
-  background:#020617;
-  padding:20px;
-  font-size:.9rem;
-  text-align:center;
-}
-
-/* PROMO BANNER */
-#promo-banner {
-  position: fixed;
-  top: -60px;
-  left: 0;
-  width: 100%;
-  background: #facc15;
-  color: #000;
-  text-align: center;
-  padding: 15px 10px;
-  font-weight: 600;
-  z-index: 9999;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-  animation: slideDown 1s forwards 0.5s;
-}
-
-@keyframes slideDown {
-  from { top: -60px; }
-  to { top: 0; }
-}
-
-/* REVEAL ANIMATION */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
-
-.reveal-visible{
-  opacity:1;
-  transform:translateY(0);
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background: url('https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;background-size: cover;color:#fff;line-height:1.6;position: relative;scroll-behavior: smooth;}
+body::before {content: "";position: fixed;top:0;left:0;width:100%;height:100%;background: rgba(0,0,0,0.5);z-index: -1;}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+.hero h1{font-size:2.5rem;} .hero span{color:#38bdf8;} .hero p{margin-top:15px;opacity:.9;}
+.cta{margin-top:25px;padding:15px 35px;background:#38bdf8;color:#000;text-decoration:none;border-radius:50px;font-weight:600;transition:.3s;display:inline-block;}
+.cta:hover{transform:scale(1.05);} 
+.cta-urgent{background:#ef4444 !important;color:#fff !important;cursor:not-allowed;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:40px;}
+.card{background:#1e293b;padding:30px;border-radius:15px;transition:.3s;position:relative;}
+.card:hover{transform:translateY(-10px);}
+.popular-badge{position:absolute;top:18px;right:18px;background:#facc15;color:#000;font-size:.75rem;font-weight:700;padding:6px 12px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.3);}
+.feature-yes::before{content:"✅";margin-right:8px;} .feature-no::before{content:"❌";margin-right:8px;opacity:.7;}
+.upgrade-note{margin-top:12px;font-size:.85rem;color:#facc15;font-weight:600;text-align:left;opacity:.9;}
+.pricing-countdown{margin:15px 0;padding:10px 15px;background:rgba(250,204,21,.15);border:1px solid #facc15;border-radius:10px;font-weight:600;color:#facc15;font-size:.9rem;text-align:center;}
+.last-hours{background:rgba(239,68,68,.15);border-color:#ef4444;color:#ef4444;animation:flashRed 1s infinite;}
+@keyframes flashRed{0%{ box-shadow:0 0 0 0 rgba(239,68,68,.6);}70%{box-shadow:0 0 0 12px rgba(239,68,68,0);}100%{box-shadow:0 0 0 0 rgba(239,68,68,0);}}
+.expired-badge{position:absolute;top:18px;right:18px;background:#ef4444;color:#fff;font-size:.75rem;font-weight:700;padding:6px 12px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.3);}
+section{padding:80px 20px;text-align:center;}
+.projects a{display:block;background:#1e293b;margin-bottom:15px;padding:20px;border-radius:12px;text-decoration:none;color:#fff;transition:.3s;}
+.projects a:hover{background:#38bdf8;color:#000;}
+footer{background:#020617;padding:20px;font-size:.9rem;text-align:center;}
+#promo-banner {position: fixed;top: -60px;left: 0;width: 100%;background: #facc15;color: #000;text-align: center;padding: 15px 10px;font-weight: 600;z-index: 9999;box-shadow: 0 2px 5px rgba(0,0,0,0.3);animation: slideDown 1s forwards 0.5s;}
+@keyframes slideDown {from { top: -60px; } to { top: 0; }}
+.reveal{opacity:0;transform:translateY(40px);transition:1s;} .reveal-visible{opacity:1;transform:translateY(0);}
+.accordion-header{cursor:pointer;padding:15px;background:#111827;border-radius:12px;margin-bottom:10px;text-align:left;position:relative;}
+.accordion-header .badge{position:absolute;right:15px;top:15px;}
+.accordion-content{display:none;padding:15px;background:#1e293b;border-radius:12px;margin-bottom:15px;}
+.accordion-content table{margin-top:10px;width:100%;text-align:left;}
+@media(max-width:700px){.hero h1{font-size:2rem;}.cards{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 
-<!-- PROMO BANNER -->
 <div id="promo-banner">
   🎉 New Year Promo! 20% OFF on paid websites until <strong>Jan 3, 2026</strong>! ⏰
   <span id="countdown"></span>
 </div>
 
-<!-- HERO -->
 <section id="hero" class="hero">
   <h1 class="reveal">I Build Websites That <span>Convert</span></h1>
   <p class="reveal" style="margin-top:15px;">Landing Pages • Funnels • Business Websites • Portfolios</p>
   <a class="cta pulse reveal" href="#pricing">💬 Claim Your FREE Website</a>
 </section>
 
-<!-- SERVICES -->
 <section id="services">
   <h2 class="reveal">What I Create</h2>
   <div class="cards">
@@ -264,92 +64,57 @@ footer{
   </div>
 </section>
 
-<!-- PRICING -->
 <section id="pricing">
   <h2 class="reveal">Pricing</h2>
   <p class="reveal" style="opacity:.85; margin-top:10px;">Start for free. Upgrade anytime when you’re ready to grow.</p>
 
-  <div id="pricing-expired" style="display:none; margin-top:20px;">
-    <h2 class="reveal">Promo Has Ended</h2>
-    <p style="opacity:.85; margin-top:10px;">
-      The limited-time offer has expired, but you can still request a custom quote.
-    </p>
-    <a class="cta pulse" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:20px; display:inline-block;">
-      💬 Request Custom Website
-    </a>
+  <!-- FREE PLAN -->
+  <div class="accordion-header reveal">🎁 Free Website</div>
+  <div class="accordion-content reveal" id="free-plan">
+    <p>Perfect for beginners | <span class="upgrade-note">🎯 Upgrade anytime!</span></p>
+    <div class="pricing-countdown" id="free-countdown">⏳ Promo ends in <span>00d 00h 00m 00s</span></div>
+    <table>
+      <tr><td class="feature-yes">1 Page Website</td></tr>
+      <tr><td class="feature-yes">Mobile Responsive</td></tr>
+      <tr><td class="feature-yes">Stock Images</td></tr>
+      <tr><td class="feature-yes">Messenger Button</td></tr>
+      <tr><td class="feature-no">Custom Domain</td></tr>
+      <tr><td class="feature-no">SEO Setup</td></tr>
+    </table>
+    <a class="cta pulse" id="free-cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:10px;display:inline-block;">Claim Free Website</a>
   </div>
 
-  <div class="cards" id="pricing-cards">
+  <!-- STARTER PLAN -->
+  <div class="accordion-header reveal">✨ Starter Website <span class="badge">Most Popular</span></div>
+  <div class="accordion-content reveal" id="starter-plan">
+    <p>For freelancers & small businesses</p>
+    <div class="pricing-countdown" id="starter-countdown">⏳ Promo ends in <span>00d 00h 00m 00s</span></div>
+    <table>
+      <tr><td class="feature-yes">3–5 Pages</td></tr>
+      <tr><td class="feature-yes">Custom Design</td></tr>
+      <tr><td class="feature-yes">SEO Ready</td></tr>
+      <tr><td class="feature-yes">Contact Form</td></tr>
+      <tr><td class="feature-yes">Messenger Integration</td></tr>
+    </table>
+    <a class="cta pulse" id="starter-cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:10px;display:inline-block;">Order Starter</a>
+  </div>
 
-    <!-- FREE PLAN -->
-    <div class="card reveal">
-      <h3>🎁 Free Website</h3>
-      <p style="opacity:.85;">Perfect for beginners</p>
-      <p class="price">$0</p>
-
-      <table style="width:100%; margin-top:15px; text-align:left; font-size:.95rem;">
-        <tr><td class="feature-yes">1 Page Website</td></tr>
-        <tr><td class="feature-yes">Mobile Responsive</td></tr>
-        <tr><td class="feature-yes">Stock Images</td></tr>
-        <tr><td class="feature-yes">Messenger Button</td></tr>
-        <tr><td class="feature-no">Custom Domain</td></tr>
-        <tr><td class="feature-no">SEO Setup</td></tr>
-      </table>
-
-      <p class="upgrade-note">🎯 Upgrade anytime to Starter or Business plans!</p>
-
-      <a class="cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:20px; display:inline-block;">
-        Claim Free Website
-      </a>
-    </div>
-
-    <!-- STARTER PLAN (MOST POPULAR) -->
-    <div class="card reveal featured" style="position:relative;">
-      <span class="popular-badge">Most Popular</span>
-      <h3>✨ Starter Website</h3>
-      <p style="opacity:.85;">For freelancers & small businesses</p>
-      <p class="price">$10 – $60</p>
-
-      <div class="pricing-countdown" id="pricing-box">
-        ⏳ Promo ends in <span id="pricing-timer">00d 00h 00m 00s</span>
-      </div>
-
-      <table style="width:100%; margin-top:15px; text-align:left; font-size:.95rem;">
-        <tr><td class="feature-yes">3–5 Pages</td></tr>
-        <tr><td class="feature-yes">Custom Design</td></tr>
-        <tr><td class="feature-yes">SEO Ready</td></tr>
-        <tr><td class="feature-yes">Contact Form</td></tr>
-        <tr><td class="feature-yes">Messenger Integration</td></tr>
-      </table>
-
-      <a class="cta pulse" id="starter-cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:20px; display:inline-block;">
-        Order Starter
-      </a>
-    </div>
-
-    <!-- BUSINESS PLAN -->
-    <div class="card reveal">
-      <h3>🏢 Business Website</h3>
-      <p style="opacity:.85;">For growing brands</p>
-      <p class="price">$65 – $200</p>
-
-      <table style="width:100%; margin-top:15px; text-align:left; font-size:.95rem;">
-        <tr><td class="feature-yes">Custom Pages & Layout</td></tr>
-        <tr><td class="feature-yes">SEO Optimization</td></tr>
-        <tr><td class="feature-yes">Analytics Setup</td></tr>
-        <tr><td class="feature-yes">Messenger Automation</td></tr>
-        <tr><td class="feature-yes">Optional Payment Integration</td></tr>
-      </table>
-
-      <a class="cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:20px; display:inline-block;">
-        Get Started
-      </a>
-    </div>
-
+  <!-- BUSINESS PLAN -->
+  <div class="accordion-header reveal">🏢 Business Website</div>
+  <div class="accordion-content reveal" id="business-plan">
+    <p>For growing brands</p>
+    <div class="pricing-countdown" id="business-countdown">⏳ Promo ends in <span>00d 00h 00m 00s</span></div>
+    <table>
+      <tr><td class="feature-yes">Custom Pages & Layout</td></tr>
+      <tr><td class="feature-yes">SEO Optimization</td></tr>
+      <tr><td class="feature-yes">Analytics Setup</td></tr>
+      <tr><td class="feature-yes">Messenger Automation</td></tr>
+      <tr><td class="feature-yes">Optional Payment Integration</td></tr>
+    </table>
+    <a class="cta pulse" id="business-cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:10px;display:inline-block;">Get Started</a>
   </div>
 </section>
 
-<!-- PORTFOLIO -->
 <section id="portfolio">
   <h2 class="reveal">Live Projects</h2>
   <div class="projects">
@@ -359,141 +124,82 @@ footer{
   </div>
 </section>
 
-<!-- OTHER SERVICES -->
-<section id="otherservices">
-  <h2 class="reveal">Other Services I Offer</h2>
-  <div class="cards">
-    <div class="card reveal">
-      <h3>📄 Resume & CV Design</h3>
-      <p>Professional resumes to land your dream job</p>
-      <p><strong>$2–$10</strong></p>
-    </div>
-    <div class="card reveal">
-      <h3>📑 Business Documents</h3>
-      <p>Invoices, proposals, and official letters</p>
-      <p><strong>$5+</strong></p>
-    </div>
-    <div class="card reveal">
-      <h3>🖊 PDF & Document Editing</h3>
-      <p>Format, convert, or edit your documents</p>
-      <p><strong>$5+</strong></p>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
 <section id="contact" class="final-cta">
   <h2 class="reveal">Want a Website That Sells?</h2>
-  <a class="cta pulse" href="https://m.me/delosreyessnooky" target="_blank">
-    Start on Messenger 🚀
-  </a>
+  <a class="cta pulse" href="https://m.me/delosreyessnooky" target="_blank">Start on Messenger 🚀</a>
 </section>
 
-<footer>
-  © 2025 Snooky Web Creator
-</footer>
+<footer>© 2025 Snooky Web Creator</footer>
 
-<!-- ALERT SOUND -->
 <audio id="alert-sound">
   <source src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-tone-996.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-// Reveal elements on scroll
-function revealOnScroll(){
-  document.querySelectorAll(".reveal").forEach(el=>{
-    const rect = el.getBoundingClientRect();
-    if(rect.top < window.innerHeight - 40){
-      el.classList.add("reveal-visible");
-    }
-  });
-}
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("resize", revealOnScroll);
+// Reveal on scroll
+function revealOnScroll(){document.querySelectorAll(".reveal").forEach(el=>{const rect=el.getBoundingClientRect();if(rect.top<window.innerHeight-40){el.classList.add("reveal-visible");}});}
+window.addEventListener("scroll",revealOnScroll);
 revealOnScroll();
 
-// Promo countdown (top banner)
-function updateCountdown(){
-  const countdownEl = document.getElementById("countdown");
-  const now = new Date();
-  const promoEnd = new Date('2026-01-03T23:59:59');
-  const diff = promoEnd - now;
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener("click",function(e){e.preventDefault();document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"});});});
 
-  if(diff <= 0){
-    document.getElementById("promo-banner").style.display="none";
-    clearInterval(timerInterval);
-    return;
+// Accordion
+document.querySelectorAll('.accordion-header').forEach(header=>{header.addEventListener('click',()=>{header.nextElementSibling.style.display=header.nextElementSibling.style.display==="block"?"none":"block";});});
+
+// Countdown function with auto-expire badge
+function startCountdown(id,endTime,ctaId,planId){
+  const countdownEl=document.getElementById(id).querySelector("span");
+  const cta=document.getElementById(ctaId);
+  const plan=document.getElementById(planId);
+  let lastHourAlerted=false;
+  function update(){
+    const now=new Date();
+    const diff=endTime-now;
+    if(diff<=0){
+      if(plan){
+        const badge=document.createElement("div");
+        badge.className="expired-badge"; badge.innerText="Promo Ended";
+        plan.appendChild(badge);
+        cta.innerText="Promo Ended"; cta.classList.add("cta-urgent"); cta.style.pointerEvents="none";
+      }
+      clearInterval(interval);
+      return;
+    }
+    const d=Math.floor(diff/(1000*60*60*24));
+    const h=Math.floor((diff/(1000*60*60))%24);
+    const m=Math.floor((diff/(1000*60))%60);
+    const s=Math.floor((diff/1000)%60);
+    countdownEl.innerHTML=`${d}d ${h}h ${m}m ${s}s`;
+    // Last 24h flash
+    if(diff<=86400000){countdownEl.classList.add("last-hours"); cta.classList.add("cta-urgent"); cta.innerHTML="⚡ Last Chance – Order Now";}
+    // Last hour alert
+    if(diff<=3600000 && !lastHourAlerted){lastHourAlerted=true;const sound=document.getElementById("alert-sound");if(sound){sound.volume=0.7; sound.play().catch(()=>{});}if(navigator.vibrate){navigator.vibrate([300,200,300,200,600]);}}
   }
-
-  const days = Math.floor(diff / (1000*60*60*24));
-  const hours = Math.floor((diff / (1000*60*60)) % 24);
-  const minutes = Math.floor((diff / (1000*60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
-
-  countdownEl.innerHTML = `(${days}d ${hours}h ${minutes}m ${seconds}s left!)`;
+  update();
+  const interval=setInterval(update,1000);
 }
 
-const timerInterval = setInterval(updateCountdown, 1000);
-updateCountdown();
+// Example end times per plan (set independently)
+startCountdown("free-countdown",new Date('2025-12-25T23:59:59'),"free-cta","free-plan");
+startCountdown("starter-countdown",new Date('2026-01-03T23:59:59'),"starter-cta","starter-plan");
+startCountdown("business-countdown",new Date('2026-01-02T23:59:59'),"business-cta","business-plan");
 
-// Pricing countdown, last 24h flash, last 1h alert, auto-hide
-let lastHourAlerted = false;
-function updatePricingCountdown(){
-  const pricingSection = document.getElementById("pricing-cards");
-  const expiredBox = document.getElementById("pricing-expired");
-  const timer = document.getElementById("pricing-timer");
-  const box = document.getElementById("pricing-box");
-  const cta = document.getElementById("starter-cta");
-  const sound = document.getElementById("alert-sound");
-
-  const promoEnd = new Date('2026-01-03T23:59:59');
-  const now = new Date();
-  const diff = promoEnd - now;
-
-  // Expired
-  if(diff <= 0){
-    if(pricingSection){
-      pricingSection.style.display="none";
-    }
-    if(expiredBox){
-      expiredBox.style.display="block";
-    }
-    if(timer) timer.innerHTML="Expired";
-    if(cta){
-      cta.innerHTML="Promo Ended";
-      cta.classList.add("cta-urgent");
-    }
-    clearInterval(window.pricingInterval);
-    return;
-  }
-
-  // Countdown
-  if(timer){
-    const d = Math.floor(diff / (1000*60*60*24));
-    const h = Math.floor((diff / (1000*60*60)) % 24);
-    const m = Math.floor((diff / (1000*60)) % 60);
-    const s = Math.floor((diff / 1000) % 60);
-    timer.innerHTML = `${d}d ${h}h ${m}m ${s}s`;
-  }
-
-  // Last 24 hours
-  if(diff <= 86400000 && box && cta){
-    box.classList.add("last-hours");
-    cta.classList.add("cta-urgent");
-    cta.innerHTML="⚡ Last Chance – Order Now";
-  }
-
-  // Last 1 hour alert
-  if(diff <= 3600000 && !lastHourAlerted){
-    lastHourAlerted=true;
-    if(sound){ sound.volume=0.7; sound.play().catch(()=>{}); }
-    if(navigator.vibrate){ navigator.vibrate([300,200,300,200,600]); }
-  }
+// Promo banner countdown
+function updatePromoCountdown(){
+  const countdownEl=document.getElementById("countdown");
+  const promoEnd=new Date('2026-01-03T23:59:59');
+  const now=new Date();
+  const diff=promoEnd-now;
+  if(diff<=0){document.getElementById("promo-banner").style.display="none"; return;}
+  const d=Math.floor(diff/(1000*60*60*24));
+  const h=Math.floor((diff/(1000*60*60))%24);
+  const m=Math.floor((diff/(1000*60))%60);
+  const s=Math.floor((diff/1000)%60);
+  countdownEl.innerHTML=`(${d}d ${h}h ${m}m ${s}s left!)`;
 }
-
-window.pricingInterval = setInterval(updatePricingCountdown, 1000);
-updatePricingCountdown();
+setInterval(updatePromoCountdown,1000);
+updatePromoCountdown();
 </script>
-
 </body>
 </html>
