@@ -169,6 +169,27 @@ footer{
   100%{transform:scale(1)}
 }
 
+/* PROMO BANNER */
+#promo-banner {
+  position: fixed;
+  top: -60px;
+  left: 0;
+  width: 100%;
+  background: #facc15;
+  color: #000;
+  text-align: center;
+  padding: 15px 10px;
+  font-weight: 600;
+  z-index: 9999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  animation: slideDown 1s forwards 0.5s;
+}
+
+@keyframes slideDown {
+  from { top: -60px; }
+  to { top: 0; }
+}
+
 /* MOBILE HERO */
 @media(max-width:600px){
   .hero h1{font-size:2rem;}
@@ -176,6 +197,12 @@ footer{
 </style>
 </head>
 <body>
+
+<!-- PROMOTIONAL BANNER -->
+<div id="promo-banner">
+  🎉 New Year Promo! 20% OFF on all paid websites until <strong>Jan 3, 2026</strong>! ⏰ 
+  <span id="countdown"></span>
+</div>
 
 <!-- HERO -->
 <section id="hero" class="hero">
@@ -215,7 +242,7 @@ footer{
     <div class="card reveal">
       <h3>🎁 FREE Website</h3>
       <p>Perfect for starting your online presence</p>
-      <p><strong>₱0</strong></p>
+      <p><strong>$0</strong></p>
       <ul style="text-align:left; margin-top:10px;">
         <li>Landing Page or Portfolio</li>
         <li>Mobile-Responsive Design</li>
@@ -227,7 +254,7 @@ footer{
     <div class="card reveal">
       <h3>✨ Starter Website</h3>
       <p>Small business or blog</p>
-      <p><strong>₱5,000</strong></p>
+      <p><strong>$90</strong> <span style="color:#facc15;">(-20%)</span></p>
       <ul style="text-align:left; margin-top:10px;">
         <li>3-5 Pages</li>
         <li>SEO Ready</li>
@@ -239,7 +266,7 @@ footer{
     <div class="card reveal">
       <h3>🏢 Business Website</h3>
       <p>Complete online business solution</p>
-      <p><strong>₱10,000+</strong></p>
+      <p><strong>$180+</strong> <span style="color:#facc15;">(-20%)</span></p>
       <ul style="text-align:left; margin-top:10px;">
         <li>Custom Pages & Design</li>
         <li>SEO & Analytics</li>
@@ -258,7 +285,7 @@ footer{
     <div class="card reveal">
       <h3>📄 Resume & CV Design</h3>
       <p>Professional resumes to land your dream job</p>
-      <p><strong>₱500 - ₱1,000</strong></p>
+      <p><strong>$9–$18</strong></p>
       <ul style="text-align:left; margin-top:10px;">
         <li>Custom Design & Layout</li>
         <li>ATS-Friendly</li>
@@ -270,7 +297,7 @@ footer{
     <div class="card reveal">
       <h3>📑 Business Documents</h3>
       <p>Invoices, proposals, and official letters</p>
-      <p><strong>₱500+</strong></p>
+      <p><strong>$9+</strong></p>
       <ul style="text-align:left; margin-top:10px;">
         <li>Custom Templates</li>
         <li>Print & Digital Ready</li>
@@ -282,7 +309,7 @@ footer{
     <div class="card reveal">
       <h3>🖊 PDF & Document Editing</h3>
       <p>Format, convert, or edit your documents</p>
-      <p><strong>₱300+</strong></p>
+      <p><strong>$5+</strong></p>
       <ul style="text-align:left; margin-top:10px;">
         <li>Word, Excel, PDF, and PowerPoint</li>
         <li>Professional & Fast Service</li>
@@ -353,6 +380,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// Promo countdown
+function updateCountdown(){
+  const countdownEl = document.getElementById("countdown");
+  const now = new Date();
+  const promoEnd = new Date('2026-01-03T23:59:59');
+  const diff = promoEnd - now;
+
+  if(diff <= 0){
+    document.getElementById("promo-banner").style.display="none";
+    clearInterval(timerInterval);
+    return;
+  }
+
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff / (1000*60*60)) % 24);
+  const minutes = Math.floor((diff / (1000*60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  countdownEl.innerHTML = `(${days}d ${hours}h ${minutes}m ${seconds}s left!)`;
+}
+
+const timerInterval = setInterval(updateCountdown, 1000);
+updateCountdown();
 </script>
 
 </body>
