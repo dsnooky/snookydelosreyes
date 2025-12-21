@@ -51,10 +51,15 @@ body::before {
   padding: 10px 0;
 }
 
+.navbar nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
 .navbar nav a {
   color: #fff;
   text-decoration: none;
-  margin: 0 15px;
   font-weight: 500;
   transition: color 0.3s, transform 0.3s;
 }
@@ -64,12 +69,25 @@ body::before {
   transform: scale(1.1);
 }
 
-/* MOBILE NAVBAR */
+.navbar nav a.active {
+  color: #facc15; /* active section highlight */
+  font-weight: 700;
+}
+
+/* MOBILE NAVBAR: horizontal scroll with snap */
 @media(max-width: 600px){
   .navbar nav {
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;           /* horizontal */
     gap: 10px;
+    overflow-x: auto;              /* scroll if links don't fit */
+    padding: 5px 10px;
+    -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+    scroll-snap-type: x mandatory; /* enable snap */
+  }
+
+  .navbar nav a {
+    flex: 0 0 auto;                /* prevent shrinking */
+    scroll-snap-align: start;      /* snap each link to start */
   }
 }
 
@@ -383,14 +401,37 @@ footer{
 </footer>
 
 <script>
+// Scroll reveal
 const reveals=document.querySelectorAll(".reveal");
-
 window.addEventListener("scroll",()=>{
   reveals.forEach(el=>{
     const top=el.getBoundingClientRect().top;
     if(top<window.innerHeight-100){
       el.style.opacity=1;
       el.style.transform="translateY(0)";
+    }
+  });
+});
+
+// Active menu highlight
+const sections = document.querySelectorAll("section[id]");
+const menuLinks = document.querySelectorAll(".navbar nav a");
+
+window.addEventListener("scroll", () => {
+  let scrollY = window.pageYOffset;
+
+  sections.forEach(current => {
+    const sectionHeight = current.offsetHeight;
+    const sectionTop = current.offsetTop - 80;
+    const sectionId = current.getAttribute("id");
+
+    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+      menuLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${sectionId}`) {
+          link.classList.add("active");
+        }
+      });
     }
   });
 });
