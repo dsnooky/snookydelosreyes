@@ -1,153 +1,71 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Website Creator | Grow Your Business Online</title>
+<title>Website Creator | Snooky</title>
 
-<!-- SEO -->
-<meta name="description" content="I create fast, mobile-friendly websites that generate leads and sales. Free consultation via Messenger.">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<!-- ManyChat -->
-<script src="https://widget.manychat.com/YOUR_PAGE_ID.js" defer></script>
-
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-body {
-  background: #f9fafb;
-  color: #333;
-  line-height: 1.6;
-}
-
-header {
-  background: linear-gradient(135deg, #2563eb, #1e40af);
-  color: #fff;
-  padding: 80px 20px;
-  text-align: center;
-}
-
-header h1 {
-  font-size: 2.4rem;
-  margin-bottom: 15px;
-}
-
-header p {
-  max-width: 600px;
-  margin: auto;
-  font-size: 1.1rem;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 15px 30px;
-  background: #22c55e;
-  color: #fff;
-  font-weight: 600;
-  border-radius: 50px;
-  text-decoration: none;
-}
-
-section {
-  padding: 60px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-.services, .portfolio {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  background: #fff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-}
-
-.card h3 {
-  margin-bottom: 10px;
-}
-
-.cta {
-  background: #1e40af;
-  color: #fff;
-  text-align: center;
-  padding: 60px 20px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #111827;
-  color: #9ca3af;
-  font-size: 0.9rem;
-}
-
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 1.9rem;
-  }
-}
-</style>
 </head>
-
 <body>
 
-<header>
-  <h1>I Build Websites That Get You Clients</h1>
-  <p>Landing pages, portfolios, and business websites optimized for mobile, speed, and sales.</p>
-  <a href="javascript:void(0)" class="btn" onclick="ManyChat.openChat()">Get Free Website</a>
-</header>
+<!-- HERO -->
+<section class="hero">
+  <h1 class="fade-in">I Build Websites That <span>Convert</span></h1>
+  <p class="slide-up">Landing Pages • Funnels • Business Websites • Automation</p>
 
-<section>
-  <h2>My Services</h2><br>
-  <div class="services">
-    <div class="card">
-      <h3>Landing Pages</h3>
-      <p>High-converting pages designed to generate leads.</p>
-    </div>
-    <div class="card">
-      <h3>Business Websites</h3>
-      <p>Professional, responsive websites for any business.</p>
-    </div>
-    <div class="card">
-      <h3>Messenger Automation</h3>
-      <p>ManyChat bots that reply instantly and collect leads.</p>
-    </div>
+  <!-- MANYCHAT BUTTON -->
+  <a href="https://m.me/YOURPAGEUSERNAME" class="cta pulse">
+    💬 Get FREE Website Consultation
+  </a>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <h2 class="reveal">What I Create</h2>
+  <div class="cards">
+    <div class="card reveal">🚀 Landing Pages</div>
+    <div class="card reveal">🛒 Affiliate Funnels</div>
+    <div class="card reveal">🏪 Business Websites</div>
+    <div class="card reveal">🤖 ManyChat Automation</div>
   </div>
 </section>
 
-<section>
-  <h2>Sample Projects</h2><br>
-  <div class="portfolio">
-    <div class="card">Affiliate Funnel Website</div>
-    <div class="card">Food Business Website</div>
-    <div class="card">Portfolio + Chatbot</div>
+<!-- PORTFOLIO -->
+<section class="portfolio">
+  <h2 class="reveal">Live Projects</h2>
+  <div class="projects">
+    <a href="#" class="project reveal">Diaper Landing Page</a>
+    <a href="#" class="project reveal">Food Business Website</a>
+    <a href="#" class="project reveal">Affiliate Funnel</a>
   </div>
 </section>
 
-<div class="cta">
-  <h2>Want a FREE Website?</h2>
-  <p>Message me now and get a demo within 24 hours.</p>
-  <a href="javascript:void(0)" class="btn" onclick="ManyChat.openChat()">Message Me</a>
-</div>
+<!-- WHY -->
+<section class="why">
+  <h2 class="reveal">Why Clients Choose Me</h2>
+  <ul>
+    <li>✅ Mobile-First Design</li>
+    <li>✅ Fast Loading</li>
+    <li>✅ SEO Ready</li>
+    <li>✅ Messenger Automation</li>
+  </ul>
+</section>
+
+<!-- CTA -->
+<section class="final-cta">
+  <h2>Want a Website That Sells?</h2>
+  <a href="https://m.me/YOURPAGEUSERNAME" class="cta big">
+    Start on Messenger 🚀
+  </a>
+</section>
 
 <footer>
-  © 2025 Snooky Delos Reyes | Website Creator
+  <p>© 2025 Snooky Web Creator</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
