@@ -400,6 +400,22 @@ footer{
 @media(max-width:600px){
   .hero h1{font-size:2rem;}
 }
+  /* ALWAYS SHOW PRICING ON MOBILE */
+@media (max-width: 800px) {
+  #pricing {
+    display: block !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    visibility: visible !important;
+  }
+
+  #pricing .cards,
+  #pricing .card {
+    display: block !important;
+    width: auto !important;
+    margin: 10px auto !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -606,17 +622,19 @@ footer{
 </footer>
 
 <script>
-// Scroll reveal
-const reveals=document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-  reveals.forEach(el=>{
-    const top=el.getBoundingClientRect().top;
-    if(top<window.innerHeight-100){
-      el.style.opacity=1;
-      el.style.transform="translateY(0)";
+// Improved reveal (mobile safe)
+function revealOnScroll(){
+  document.querySelectorAll(".reveal").forEach(el=>{
+    const rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 40){
+      el.style.opacity = 1;
+      el.style.transform = "translateY(0)";
     }
   });
-});
+}
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("resize", revealOnScroll);
+revealOnScroll();
 
 // Smooth scroll for all internal links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
