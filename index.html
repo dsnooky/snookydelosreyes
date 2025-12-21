@@ -1,206 +1,153 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Website Creator Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<title>Website Creator | Grow Your Business Online</title>
+
+<!-- SEO -->
+<meta name="description" content="I create fast, mobile-friendly websites that generate leads and sales. Free consultation via Messenger.">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- ManyChat -->
+<script src="https://widget.manychat.com/YOUR_PAGE_ID.js" defer></script>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Poppins;background:#f9f9f9;color:#333;line-height:1.6;scroll-behavior:smooth;}
-section{padding:70px 20px}
-.container{max-width:1100px;margin:auto}
-h1,h2,h3{margin-bottom:15px}
-p{margin-bottom:15px;}
-.btn{
-  background:#ff7a00;
-  color:#fff;
-  padding:14px 26px;
-  border-radius:6px;
-  text-decoration:none;
-  display:inline-block;
-  margin-top:20px;
-  font-weight:500;
-  transition:0.3s;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-.btn:hover{opacity:0.9; transform:scale(1.02);}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:20px
+
+body {
+  background: #f9fafb;
+  color: #333;
+  line-height: 1.6;
 }
-.card{
-  background:#fff;
-  padding:25px;
-  border-radius:10px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.05);
-  text-align:center;
+
+header {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
 }
-.hero{
-  background: 
-    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-    url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color:#fff;
-  text-align:center;
+
+header h1 {
+  font-size: 2.4rem;
+  margin-bottom: 15px;
 }
-.payment-bg{
-  background:
-    linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
-    url('https://images.unsplash.com/photo-1605902711622-cfb43c44367f');
-  background-size: cover;
-  background-position: center;
+
+header p {
+  max-width: 600px;
+  margin: auto;
+  font-size: 1.1rem;
 }
-.center{text-align:center;}
-.footer{
-  background:#111;
-  color:#fff;
-  text-align:center;
-  padding:30px
+
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 15px 30px;
+  background: #22c55e;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
 }
-.floating-messenger{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  z-index:999;
+
+section {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
 }
-.floating-messenger img{
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  box-shadow:0 5px 15px rgba(0,0,0,0.3);
-  cursor:pointer;
+
+.services, .portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
-@media(max-width:600px){
-.hero h1{font-size:1.7rem}
+
+.card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.cta {
+  background: #1e40af;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111827;
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.9rem;
+  }
 }
 </style>
 </head>
+
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <h1>I Build Websites That Get Customers — Not Just Views</h1>
-    <p style="font-size:1.1rem; font-weight:500; margin-top:10px;">
-      FREE Website Demo for Business Owners • Limited Slots Only
-    </p>
-    <p style="max-width:700px; margin:20px auto;">
-      Landing Pages • Business Websites • Affiliate Funnels • Messenger Automation
-    </p>
-    <a class="btn" href="https://m.me/YOUR_FACEBOOK_PAGE?ref=freewebsite">
-      Get FREE Website Demo
-    </a>
-  </div>
-</section>
+<header>
+  <h1>I Build Websites That Get You Clients</h1>
+  <p>Landing pages, portfolios, and business websites optimized for mobile, speed, and sales.</p>
+  <a href="javascript:void(0)" class="btn" onclick="ManyChat.openChat()">Get Free Website</a>
+</header>
 
-<!-- SERVICES -->
 <section>
-  <div class="container center">
-    <h2>My Services</h2>
-    <div class="grid">
-      <div class="card">🚀 High-Converting Landing Pages</div>
-      <div class="card">🏢 Business Websites</div>
-      <div class="card">🛒 Affiliate Funnels</div>
-      <div class="card">🤖 ManyChat Automation</div>
-      <div class="card">📱 Mobile-First Design</div>
-      <div class="card">⚡ Fast & SEO Optimized</div>
+  <h2>My Services</h2><br>
+  <div class="services">
+    <div class="card">
+      <h3>Landing Pages</h3>
+      <p>High-converting pages designed to generate leads.</p>
+    </div>
+    <div class="card">
+      <h3>Business Websites</h3>
+      <p>Professional, responsive websites for any business.</p>
+    </div>
+    <div class="card">
+      <h3>Messenger Automation</h3>
+      <p>ManyChat bots that reply instantly and collect leads.</p>
     </div>
   </div>
 </section>
 
-<!-- LIVE SAMPLES -->
 <section>
-  <div class="container center">
-    <h2>Live Samples</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Landing Page</h3>
-        <p>High-conversion sales page</p>
-        <a class="btn" href="#" target="_blank">View Demo</a>
-      </div>
-      <div class="card">
-        <h3>Business Website</h3>
-        <p>Clean & professional layout</p>
-        <a class="btn" href="#" target="_blank">View Demo</a>
-      </div>
-      <div class="card">
-        <h3>Affiliate Funnel</h3>
-        <p>Built for lead capture</p>
-        <a class="btn" href="#" target="_blank">View Demo</a>
-      </div>
-    </div>
+  <h2>Sample Projects</h2><br>
+  <div class="portfolio">
+    <div class="card">Affiliate Funnel Website</div>
+    <div class="card">Food Business Website</div>
+    <div class="card">Portfolio + Chatbot</div>
   </div>
 </section>
 
-<!-- WHY CHOOSE ME -->
-<section>
-  <div class="container center">
-    <h2>Why Choose Me?</h2>
-    <div class="grid">
-      <div class="card">✅ Built to Convert (Not Just Design)</div>
-      <div class="card">✅ Fast Turnaround</div>
-      <div class="card">✅ FREE Demo Before Payment</div>
-      <div class="card">✅ Messenger Automation Included</div>
-    </div>
-  </div>
-</section>
-
-<!-- CALL TO ACTION -->
-<section class="center">
-  <div class="container">
-    <h2>Want a FREE Website Demo?</h2>
-    <p>Limited slots available for business owners</p>
-    <a class="btn" href="https://m.me/YOUR_FACEBOOK_PAGE?ref=freewebsite">
-      Message Me on Facebook
-    </a>
-  </div>
-</section>
-
-<!-- PAYMENT OPTIONS -->
-<section class="center payment-bg">
-  <div class="container">
-    <h2>Payment Options</h2>
-    <p>Choose your preferred payment method to proceed</p>
-    <div class="grid" style="max-width:600px;margin:30px auto;">
-      <div class="card">
-        <h3>💙 GCash</h3>
-        <p>Fast & secure mobile payment</p>
-        <a class="btn" href="https://m.me/YOUR_FACEBOOK_PAGE?ref=gcash_payment">
-          Pay via GCash
-        </a>
-      </div>
-      <div class="card">
-        <h3>🏦 Bank Transfer</h3>
-        <p>BPI / BDO / UnionBank</p>
-        <a class="btn" href="https://m.me/YOUR_FACEBOOK_PAGE?ref=bank_payment">
-          Pay via Bank
-        </a>
-      </div>
-    </div>
-    <p style="font-size:0.9rem;opacity:0.8;">
-      Payment details will be sent via Messenger for security.
-    </p>
-  </div>
-</section>
-
-<!-- CONTACT / MESSENGER -->
-<section class="footer">
-  <p>💬 Chat with me anytime</p>
-  <a class="btn" href="https://m.me/YOUR_FACEBOOK_PAGE?ref=freewebsite">
-    Open Messenger
-  </a>
-</section>
-
-<!-- FLOATING MESSENGER BUTTON -->
-<div class="floating-messenger">
-  <a href="https://m.me/YOUR_FACEBOOK_PAGE?ref=freewebsite" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Facebook_Messenger_logo_2020.svg" alt="Messenger">
-  </a>
+<div class="cta">
+  <h2>Want a FREE Website?</h2>
+  <p>Message me now and get a demo within 24 hours.</p>
+  <a href="javascript:void(0)" class="btn" onclick="ManyChat.openChat()">Message Me</a>
 </div>
+
+<footer>
+  © 2025 Snooky Delos Reyes | Website Creator
+</footer>
 
 </body>
 </html>
