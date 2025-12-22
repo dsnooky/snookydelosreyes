@@ -40,6 +40,7 @@ section{padding:80px 20px;text-align:center;}
 .accordion-header .badge{position:absolute;right:15px;top:15px;}
 .accordion-content{display:none;padding:15px;background:#1e293b;border-radius:12px;margin-bottom:15px;}
 .accordion-content table{margin-top:10px;width:100%;text-align:left;}
+.price-tag{font-weight:700;color:#facc15;font-size:1.2rem;margin-top:8px;}
 @media(max-width:700px){.hero h1{font-size:2rem;}.cards{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -74,10 +75,7 @@ section{padding:80px 20px;text-align:center;}
   <div class="accordion-header reveal">🎁 Free Website</div>
   <div class="accordion-content reveal" id="free-plan">
     <p>Perfect for beginners | <span class="upgrade-note">🎯 Upgrade anytime!</span></p>
-    <div class="pricing-countdown" id="free-countdown">
-      <span>00d 00h 00m 00s</span>
-      <div class="tooltip" id="free-tooltip">⚠️ Upgrade recommended to unlock full features!</div>
-    </div>
+    <div class="pricing-countdown" id="free-countdown"><span>00d 00h 00m 00s</span><div class="tooltip" id="free-tooltip">⚠️ Upgrade recommended to unlock full features!</div></div>
     <table>
       <tr><td class="feature-yes">1 Page Website</td></tr>
       <tr><td class="feature-yes">Mobile Responsive</td></tr>
@@ -87,6 +85,7 @@ section{padding:80px 20px;text-align:center;}
       <tr><td class="feature-no">SEO Setup</td></tr>
     </table>
     <p class="revision-info">Revisions: 1</p>
+    <p class="price-tag">$0</p>
     <a class="cta pulse" id="free-cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:10px;display:inline-block;">Claim Free Website</a>
   </div>
 
@@ -103,6 +102,7 @@ section{padding:80px 20px;text-align:center;}
       <tr><td class="feature-yes">Messenger Integration</td></tr>
     </table>
     <p class="revision-info">Revisions: 3</p>
+    <p class="price-tag">$10–$60</p>
     <a class="cta pulse" id="starter-cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:10px;display:inline-block;">Order Starter</a>
   </div>
 
@@ -119,12 +119,55 @@ section{padding:80px 20px;text-align:center;}
       <tr><td class="feature-yes">Optional Payment Integration</td></tr>
     </table>
     <p class="revision-info">Revisions: Unlimited</p>
+    <p class="price-tag">$65–$200</p>
     <a class="cta pulse" id="business-cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:10px;display:inline-block;">Get Started</a>
   </div>
 </section>
 
+<section id="otherservices">
+  <h2 class="reveal">Other Services I Offer</h2>
+  <div class="cards">
+    <div class="card reveal">
+      <h3>📄 Resume & CV Design</h3>
+      <p>Professional resumes to land your dream job</p>
+      <p class="revision-info">Revisions: 2</p>
+      <p class="price-tag">$5–$15</p>
+      <ul style="text-align:left; margin-top:10px;">
+        <li class="feature-yes">Custom Design & Layout</li>
+        <li class="feature-yes">ATS-Friendly</li>
+        <li class="feature-yes">Editable PDF & Word Versions</li>
+      </ul>
+      <a class="cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:15px;display:inline-block;">Order Now</a>
+    </div>
+    <div class="card reveal">
+      <h3>📑 Business Documents</h3>
+      <p>Invoices, proposals, and official letters</p>
+      <p class="revision-info">Revisions: 3</p>
+      <p class="price-tag">$7–$20</p>
+      <ul style="text-align:left; margin-top:10px;">
+        <li class="feature-yes">Custom Templates</li>
+        <li class="feature-yes">Print & Digital Ready</li>
+        <li class="feature-yes">Professional Formatting</li>
+      </ul>
+      <a class="cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:15px;display:inline-block;">Get Yours</a>
+    </div>
+    <div class="card reveal">
+      <h3>🖊 PDF & Document Editing</h3>
+      <p>Format, convert, or edit your documents</p>
+      <p class="revision-info">Revisions: Unlimited</p>
+      <p class="price-tag">$5+</p>
+      <ul style="text-align:left; margin-top:10px;">
+        <li class="feature-yes">Word, Excel, PDF, PowerPoint</li>
+        <li class="feature-yes">Professional & Fast Service</li>
+        <li class="feature-yes">Custom Templates</li>
+      </ul>
+      <a class="cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:15px;display:inline-block;">Get Started</a>
+    </div>
+  </div>
+</section>
+
 <section id="portfolio">
-  <h2 class="reveal">Sample Live Projects</h2>
+  <h2 class="reveal">Live Projects</h2>
   <div class="projects">
     <a href="https://dsnooky.github.io/myportfolio" class="reveal">Portfolio Website</a>
     <a href="https://workwithsnooky.github.io/siomaiking" class="reveal">Food Business Website</a>
@@ -155,7 +198,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListen
 // Accordion
 document.querySelectorAll('.accordion-header').forEach(header=>{header.addEventListener('click',()=>{header.nextElementSibling.style.display=header.nextElementSibling.style.display==="block"?"none":"block";});});
 
-// Countdown function with auto-upgrade and tooltip
+// Countdown function (same as previous)
 function startCountdown(id,endTime,ctaId,planId,isFree=false,tooltipId=null){
   const countdownEl=document.getElementById(id).querySelector("span");
   const cta=document.getElementById(ctaId);
@@ -181,10 +224,7 @@ function startCountdown(id,endTime,ctaId,planId,isFree=false,tooltipId=null){
     const m=Math.floor((diff/(1000*60))%60);
     const s=Math.floor((diff/1000)%60);
     countdownEl.innerHTML=`${d}d ${h}h ${m}m ${s}s`;
-    if(diff<=86400000){
-      countdownEl.classList.add("last-hours"); cta.classList.add("cta-urgent"); cta.innerHTML="⚡ Last Chance – Order Now";
-      if(tooltip) tooltip.classList.add("show");
-    }
+    if(diff<=86400000){countdownEl.classList.add("last-hours"); cta.classList.add("cta-urgent"); cta.innerHTML="⚡ Last Chance – Order Now"; if(tooltip) tooltip.classList.add("show");}
     if(diff<=3600000 && !lastHourAlerted){lastHourAlerted=true;
       const sound=document.getElementById("alert-sound");if(sound){sound.volume=0.7; sound.play().catch(()=>{});}
       if(navigator.vibrate){navigator.vibrate([300,200,300,200,600]);}
@@ -194,7 +234,7 @@ function startCountdown(id,endTime,ctaId,planId,isFree=false,tooltipId=null){
   const interval=setInterval(update,1000);
 }
 
-// Example end times per plan
+// Countdown examples
 startCountdown("free-countdown",new Date('2025-12-25T23:59:59'),"free-cta","free-plan",true,"free-tooltip");
 startCountdown("starter-countdown",new Date('2026-01-03T23:59:59'),"starter-cta","starter-plan");
 startCountdown("business-countdown",new Date('2026-01-02T23:59:59'),"business-cta","business-plan");
@@ -206,14 +246,15 @@ function updatePromoCountdown(){
   const now=new Date();
   const diff=promoEnd-now;
   if(diff<=0){document.getElementById("promo-banner").style.display="none"; return;}
-  const d=Math.floor(diff/(1000*60*60*24));
-  const h=Math.floor((diff/(1000*60*60))%24);
-  const m=Math.floor((diff/(1000*60))%60);
-  const s=Math.floor((diff/1000)%60);
-  countdownEl.innerHTML=`(${d}d ${h}h ${m}m ${s}s left!)`;
+  const days=Math.floor(diff/(1000*60*60*24));
+  const hours=Math.floor((diff/(1000*60*60))%24);
+  const minutes=Math.floor((diff/(1000*60))%60);
+  const seconds=Math.floor((diff/1000)%60);
+  countdownEl.innerHTML=`(${days}d ${hours}h ${minutes}m ${seconds}s left!)`;
 }
 setInterval(updatePromoCountdown,1000);
 updatePromoCountdown();
 </script>
+
 </body>
 </html>
