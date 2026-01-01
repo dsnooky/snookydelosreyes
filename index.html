@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="google-site-verification" content="gs8g2bUckshuPWh69Qk2PODbmUEnFaWkNd34kMYgRkg" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Website Creator | Snooky</title>
-
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -87,7 +84,8 @@ section{padding:80px 20px;text-align:center;}
     </table>
     <p class="revision-info">Revisions: 1</p>
     <p class="price-tag">$0</p>
-    <a class="cta pulse" id="free-cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:10px;display:inline-block;">Claim Free Website</a>
+    <!-- CLICK TO SHOPEE -->
+    <a class="cta pulse" onclick="goShopee()" href="javascript:void(0)" style="margin-top:10px;display:inline-block;">Claim Free Website</a>
   </div>
 
   <!-- STARTER PLAN -->
@@ -104,7 +102,7 @@ section{padding:80px 20px;text-align:center;}
     </table>
     <p class="revision-info">Revisions: 3</p>
     <p class="price-tag">$10–$60</p>
-    <a class="cta pulse" id="starter-cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:10px;display:inline-block;">Order Starter</a>
+    <a class="cta pulse" onclick="goShopee()" href="javascript:void(0)" style="margin-top:10px;display:inline-block;">Order Starter</a>
   </div>
 
   <!-- BUSINESS PLAN -->
@@ -121,49 +119,7 @@ section{padding:80px 20px;text-align:center;}
     </table>
     <p class="revision-info">Revisions: Unlimited</p>
     <p class="price-tag">$65–$200</p>
-    <a class="cta pulse" id="business-cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:10px;display:inline-block;">Get Started</a>
-  </div>
-</section>
-
-<section id="otherservices">
-  <h2 class="reveal">Other Services I Offer</h2>
-  <div class="cards">
-    <div class="card reveal">
-      <h3>📄 Resume & CV Design</h3>
-      <p>Professional resumes to land your dream job</p>
-      <p class="revision-info">Revisions: 2</p>
-      <p class="price-tag">$2–$5</p>
-      <ul style="text-align:left; margin-top:10px;">
-        <li class="feature-yes">Custom Design & Layout</li>
-        <li class="feature-yes">ATS-Friendly</li>
-        <li class="feature-yes">Editable PDF & Word Versions</li>
-      </ul>
-      <a class="cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:15px;display:inline-block;">Order Now</a>
-    </div>
-    <div class="card reveal">
-      <h3>📑 Business Documents</h3>
-      <p>Invoices, proposals, and official letters</p>
-      <p class="revision-info">Revisions: 3</p>
-      <p class="price-tag">$5–$10</p>
-      <ul style="text-align:left; margin-top:10px;">
-        <li class="feature-yes">Custom Templates</li>
-        <li class="feature-yes">Print & Digital Ready</li>
-        <li class="feature-yes">Professional Formatting</li>
-      </ul>
-      <a class="cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:15px;display:inline-block;">Get Yours</a>
-    </div>
-    <div class="card reveal">
-      <h3>🖊 PDF & Document Editing</h3>
-      <p>Format, convert, or edit your documents</p>
-      <p class="revision-info">Revisions: Unlimited</p>
-      <p class="price-tag">$5–$10</p>
-      <ul style="text-align:left; margin-top:10px;">
-        <li class="feature-yes">Word, Excel, PDF, PowerPoint</li>
-        <li class="feature-yes">Professional & Fast Service</li>
-        <li class="feature-yes">Custom Templates</li>
-      </ul>
-      <a class="cta" href="https://m.me/delosreyessnooky" target="_blank" style="margin-top:15px;display:inline-block;">Get Started</a>
-    </div>
+    <a class="cta pulse" onclick="goShopee()" href="javascript:void(0)" style="margin-top:10px;display:inline-block;">Get Started</a>
   </div>
 </section>
 
@@ -178,7 +134,7 @@ section{padding:80px 20px;text-align:center;}
 
 <section id="contact" class="final-cta">
   <h2 class="reveal">Want a Website That Sells?</h2>
-  <a class="cta pulse" href="https://m.me/delosreyessnooky" target="_blank">Start on Messenger 🚀</a>
+  <a class="cta pulse" onclick="goShopee()" href="javascript:void(0)">Start on Messenger 🚀</a>
 </section>
 
 <footer>© 2025 Snooky Web Creator</footer>
@@ -188,18 +144,33 @@ section{padding:80px 20px;text-align:center;}
 </audio>
 
 <script>
-// Reveal on scroll
-function revealOnScroll(){document.querySelectorAll(".reveal").forEach(el=>{const rect=el.getBoundingClientRect();if(rect.top<window.innerHeight-40){el.classList.add("reveal-visible");}});}
+// ------------------ REVEAL ON SCROLL ------------------
+function revealOnScroll(){
+  document.querySelectorAll(".reveal").forEach(el=>{
+    const rect=el.getBoundingClientRect();
+    if(rect.top<window.innerHeight-40){el.classList.add("reveal-visible");}
+  });
+}
 window.addEventListener("scroll",revealOnScroll);
 revealOnScroll();
 
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener("click",function(e){e.preventDefault();document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"});});});
+// ------------------ SMOOTH SCROLL ------------------
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+  anchor.addEventListener("click",function(e){
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"});
+  });
+});
 
-// Accordion
-document.querySelectorAll('.accordion-header').forEach(header=>{header.addEventListener('click',()=>{header.nextElementSibling.style.display=header.nextElementSibling.style.display==="block"?"none":"block";});});
+// ------------------ ACCORDION ------------------
+document.querySelectorAll('.accordion-header').forEach(header=>{
+  header.addEventListener('click',()=>{
+    header.nextElementSibling.style.display=
+      header.nextElementSibling.style.display==="block"?"none":"block";
+  });
+});
 
-// Countdown function (same as previous)
+// ------------------ COUNTDOWNS ------------------
 function startCountdown(id,endTime,ctaId,planId,isFree=false,tooltipId=null){
   const countdownEl=document.getElementById(id).querySelector("span");
   const cta=document.getElementById(ctaId);
@@ -214,7 +185,7 @@ function startCountdown(id,endTime,ctaId,planId,isFree=false,tooltipId=null){
         const badge=document.createElement("div");
         badge.className="expired-badge"; badge.innerText="Promo Ended"; plan.appendChild(badge);
         cta.innerText="Upgrade to Starter / Business"; 
-        cta.href="https://m.me/delosreyessnooky";
+        cta.href="javascript:void(0)";
         cta.classList.remove("cta-urgent"); cta.style.pointerEvents="auto";
         if(tooltip) tooltip.classList.remove("show");
       }
@@ -235,7 +206,7 @@ function startCountdown(id,endTime,ctaId,planId,isFree=false,tooltipId=null){
   const interval=setInterval(update,1000);
 }
 
-// Countdown examples
+// Example countdowns
 startCountdown("free-countdown",new Date('2025-12-25T23:59:59'),"free-cta","free-plan",true,"free-tooltip");
 startCountdown("starter-countdown",new Date('2026-01-03T23:59:59'),"starter-cta","starter-plan");
 startCountdown("business-countdown",new Date('2026-01-02T23:59:59'),"business-cta","business-plan");
@@ -255,6 +226,32 @@ function updatePromoCountdown(){
 }
 setInterval(updatePromoCountdown,1000);
 updatePromoCountdown();
+
+// ------------------ AFFILIATE REDIRECT & TRACKING ------------------
+const SHOPEE_AFFILIATE_LINK = "https://s.shopee.ph/YOUR_AFFILIATE_LINK"; // Replace with your affiliate link
+
+function countClick() {
+  let clicks = localStorage.getItem("shopee_clicks") || 0;
+  clicks++;
+  localStorage.setItem("shopee_clicks", clicks);
+  console.log("Shopee clicks:", clicks);
+  // Optional: update visible counter
+  const el = document.getElementById("click-counter");
+  if(el) el.innerText = clicks;
+}
+
+// Optional GA / FB Pixel tracking
+/*
+function trackGA(){ if(typeof gtag==="function"){ gtag('event','affiliate_click',{event_category:'Shopee',event_label:'Shopee Affiliate Redirect'});} }
+function trackFB(){ if(typeof fbq==="function"){ fbq('track','ViewContent',{content_name:'Shopee Affiliate'});} }
+*/
+
+function goShopee(){
+  countClick();
+  // trackGA();
+  // trackFB();
+  window.location.replace(SHOPEE_AFFILIATE_LINK); // seamless redirect
+}
 </script>
 
 </body>
