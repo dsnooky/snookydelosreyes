@@ -12,10 +12,10 @@ body{background: url('https://images.unsplash.com/photo-1517433456452-f9633a875f
 body::before {content: "";position: fixed;top:0;left:0;width:100%;height:100%;background: rgba(0,0,0,0.5);z-index: -1;}
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
 .hero h1{font-size:2.5rem;} .hero span{color:#38bdf8;} .hero p{margin-top:15px;opacity:.9;}
-.cta{margin-top:25px;padding:15px 35px;background:#38bdf8;color:#000;text-decoration:none;border-radius:50px;font-weight:600;transition:.3s;display:inline-block;cursor:pointer;}
+.cta{margin-top:25px;padding:15px 35px;background:#38bdf8;color:#000;text-decoration:none;border-radius:50px;font-weight:600;transition:.3s;display:inline-block;}
 .cta:hover{transform:scale(1.05);} 
 .cta-urgent{background:#ef4444 !important;color:#fff !important;}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:40px;}
 .card{background:#1e293b;padding:30px;border-radius:15px;transition:.3s;position:relative;}
 .card:hover{transform:translateY(-10px);}
 .popular-badge{position:absolute;top:18px;right:18px;background:#facc15;color:#000;font-size:.75rem;font-weight:700;padding:6px 12px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.3);}
@@ -29,28 +29,9 @@ body::before {content: "";position: fixed;top:0;left:0;width:100%;height:100%;ba
 .tooltip{position:absolute;top:-30px;left:50%;transform:translateX(-50%);background:#facc15;color:#000;padding:6px 10px;border-radius:6px;font-size:.75rem;font-weight:600;white-space:nowrap;opacity:0;pointer-events:none;transition:.3s;}
 .tooltip.show{opacity:1;}
 section{padding:80px 20px;text-align:center;}
-.projects a{display:block;background:#1e293b;margin-bottom:15px;padding:20px;border-radius:12px;text-decoration:none;color:#fff;transition:.3s;cursor:pointer;}
+.projects a{display:block;background:#1e293b;margin-bottom:15px;padding:20px;border-radius:12px;text-decoration:none;color:#fff;transition:.3s;}
 .projects a:hover{background:#38bdf8;color:#000;}
-#promo-banner {
-  position: fixed;
-  top: -60px;
-  left: 0;
-  width: 100%;
-  background: #38bdf8;
-  color: #fff;
-  text-align: center;
-  padding: 15px 10px;
-  font-weight: 700;
-  z-index: 9999;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-  animation: slideDown 1s forwards 0.5s;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-#promo-banner:hover { transform: scale(1.02); background: #22a1f2; }
-#promo-banner span { font-weight: 600; color: #fff; margin-left: 10px; }
-#fake-clicks { margin-left:15px; font-weight:600; color:#fff; }
+#promo-banner {position: fixed;top: -60px;left: 0;width: 100%;background: #facc15;color: #000;text-align: center;padding: 15px 10px;font-weight: 600;z-index: 9999;box-shadow: 0 2px 5px rgba(0,0,0,0.3);animation: slideDown 1s forwards 0.5s;}
 @keyframes slideDown {from { top: -60px; } to { top: 0; }}
 .reveal{opacity:0;transform:translateY(40px);transition:1s;} .reveal-visible{opacity:1;transform:translateY(0);}
 .accordion-header{cursor:pointer;padding:15px;background:#111827;border-radius:12px;margin-bottom:10px;text-align:left;position:relative;}
@@ -58,23 +39,20 @@ section{padding:80px 20px;text-align:center;}
 .accordion-content{display:none;padding:15px;background:#1e293b;border-radius:12px;margin-bottom:15px;}
 .accordion-content table{margin-top:10px;width:100%;text-align:left;}
 .price-tag{font-weight:700;color:#facc15;font-size:1.2rem;margin-top:8px;}
-@media(max-width:1100px){.cards{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:700px){.cards{grid-template-columns:1fr;}.hero h1{font-size:2rem;}}
+@media(max-width:700px){.hero h1{font-size:2rem;}.cards{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 
-<!-- BANNER WITH FAKE COUNTER -->
-<div id="promo-banner" onclick="goShopee()">
-  🎉 I OFFER FREE WEBSITES! 🚀 Claim yours now!
+<div id="promo-banner">
+  🎉 New Year Promo! 20% OFF on paid websites until <strong>Jan 3, 2026</strong>! ⏰
   <span id="countdown"></span>
-  <span id="fake-clicks">👥 152 people claimed this!</span>
 </div>
 
 <section id="hero" class="hero">
   <h1 class="reveal">I Build Websites That <span>Convert</span></h1>
   <p class="reveal" style="margin-top:15px;">Landing Pages • Funnels • Business Websites • Portfolios</p>
-  <a class="cta pulse reveal" onclick="goShopee()" href="https://www.facebook.com/share/1AoHeVSvHa/">💬 Claim Your FREE Website</a>
+  <a class="cta pulse reveal" href="#pricing">💬 Claim Your FREE Website</a>
 </section>
 
 <section id="services">
@@ -84,8 +62,6 @@ section{padding:80px 20px;text-align:center;}
     <div class="card reveal">🛒 Affiliate Funnels</div>
     <div class="card reveal">🏪 Business Websites</div>
     <div class="card reveal">💬 Portfolio Website</div>
-    <div class="card reveal">📄 Resume & CV Design</div>
-    <div class="card reveal">📑 Business Documents</div>
   </div>
 </section>
 
@@ -93,39 +69,66 @@ section{padding:80px 20px;text-align:center;}
   <h2 class="reveal">Pricing</h2>
   <p class="reveal" style="opacity:.85; margin-top:10px;">Start for free. Upgrade anytime when you’re ready to grow.</p>
 
-  <div class="cards">
-    <div class="card reveal">
-      <h3>🎁 Free Website</h3>
-      <p>Perfect for beginners | 🎯 Upgrade anytime!</p>
-      <div class="pricing-countdown" id="free-countdown"><span>00d 00h 00m 00s</span></div>
-      <p class="price-tag">$0</p>
-      <a class="cta pulse" onclick="goShopee()" href="https://www.facebook.com/share/1AoHeVSvHa/">Claim Free Website</a>
-    </div>
-    <div class="card reveal">
-      <h3>✨ Starter Website</h3>
-      <p>For freelancers & small businesses</p>
-      <div class="pricing-countdown" id="starter-countdown"><span>00d 00h 00m 00s</span></div>
-      <p class="price-tag">$10–$60</p>
-      <a class="cta pulse" onclick="goShopee()" href="https://www.facebook.com/share/1AoHeVSvHa/">Order Starter</a>
-    </div>
-    <div class="card reveal">
-      <h3>🏢 Business Website</h3>
-      <p>For growing brands</p>
-      <div class="pricing-countdown" id="business-countdown"><span>00d 00h 00m 00s</span></div>
-      <p class="price-tag">$65–$200</p>
-      <a class="cta pulse" onclick="goShopee()" href="https://www.facebook.com/share/1AoHeVSvHa/">Get Started</a>
-    </div>
+  <!-- FREE PLAN -->
+  <div class="accordion-header reveal">🎁 Free Website</div>
+  <div class="accordion-content reveal" id="free-plan">
+    <p>Perfect for beginners | <span class="upgrade-note">🎯 Upgrade anytime!</span></p>
+    <div class="pricing-countdown" id="free-countdown"><span>00d 00h 00m 00s</span><div class="tooltip" id="free-tooltip">⚠️ Upgrade recommended to unlock full features!</div></div>
+    <table>
+      <tr><td class="feature-yes">1 Page Website</td></tr>
+      <tr><td class="feature-yes">Mobile Responsive</td></tr>
+      <tr><td class="feature-yes">Stock Images</td></tr>
+      <tr><td class="feature-yes">Messenger Button</td></tr>
+      <tr><td class="feature-no">Custom Domain</td></tr>
+      <tr><td class="feature-no">SEO Setup</td></tr>
+    </table>
+    <p class="revision-info">Revisions: 1</p>
+    <p class="price-tag">$0</p>
+    <!-- CLICK TO SHOPEE -->
+    <a class="cta pulse" onclick="goShopee()" href="https://www.facebook.com/share/1AoHeVSvHa/" style="margin-top:10px;display:inline-block;">Claim Free Website</a>
+  </div>
+
+  <!-- STARTER PLAN -->
+  <div class="accordion-header reveal">✨ Starter Website <span class="badge">Most Popular</span></div>
+  <div class="accordion-content reveal" id="starter-plan">
+    <p>For freelancers & small businesses</p>
+    <div class="pricing-countdown" id="starter-countdown">⏳ Promo ends in <span>00d 00h 00m 00s</span></div>
+    <table>
+      <tr><td class="feature-yes">3–5 Pages</td></tr>
+      <tr><td class="feature-yes">Custom Design</td></tr>
+      <tr><td class="feature-yes">SEO Ready</td></tr>
+      <tr><td class="feature-yes">Contact Form</td></tr>
+      <tr><td class="feature-yes">Messenger Integration</td></tr>
+    </table>
+    <p class="revision-info">Revisions: 3</p>
+    <p class="price-tag">$10–$60</p>
+    <a class="cta pulse" onclick="goShopee()" href="https://www.facebook.com/share/1AoHeVSvHa/" style="margin-top:10px;display:inline-block;">Order Starter</a>
+  </div>
+
+  <!-- BUSINESS PLAN -->
+  <div class="accordion-header reveal">🏢 Business Website</div>
+  <div class="accordion-content reveal" id="business-plan">
+    <p>For growing brands</p>
+    <div class="pricing-countdown" id="business-countdown">⏳ Promo ends in <span>00d 00h 00m 00s</span></div>
+    <table>
+      <tr><td class="feature-yes">Custom Pages & Layout</td></tr>
+      <tr><td class="feature-yes">SEO Optimization</td></tr>
+      <tr><td class="feature-yes">Analytics Setup</td></tr>
+      <tr><td class="feature-yes">Messenger Automation</td></tr>
+      <tr><td class="feature-yes">Optional Payment Integration</td></tr>
+    </table>
+    <p class="revision-info">Revisions: Unlimited</p>
+    <p class="price-tag">$65–$200</p>
+    <a class="cta pulse" onclick="goShopee()" href="https://www.facebook.com/share/1AoHeVSvHa/" style="margin-top:10px;display:inline-block;">Get Started</a>
   </div>
 </section>
 
 <section id="portfolio">
   <h2 class="reveal">Live Projects</h2>
-  <div class="cards projects">
-    <a class="reveal" onclick="goShopee()" href="https://dsnooky.github.io/myportfolio">Portfolio Website</a>
-    <a class="reveal" onclick="goShopee()" href="https://govt-ops.github.io/freelancing2/index.html">Freelancing Website</a>
-    <a class="reveal" onclick="goShopee()" href="https://dsnooky.github.io/shopnow">News Website</a>
-    <a class="reveal" onclick="goShopee()" href="‎https://workwithsnooky.github.io/siomaiking ">Food Business Website</a>
-    <a class="reveal" onclick="goShopee()" href="https://dsnooky.github.io/shopnow">Affiliate Website</a>
+  <div class="projects">
+    <a href="https://dsnooky.github.io/myportfolio" class="reveal">Portfolio Website</a>
+    <a href="https://workwithsnooky.github.io/siomaiking" class="reveal">Food Business Website</a>
+    <a href="https://dsnooky.github.io/landingpagetemplate/" class="reveal">Landing Page</a>
   </div>
 </section>
 
@@ -141,31 +144,74 @@ section{padding:80px 20px;text-align:center;}
 </audio>
 
 <script>
-// Reveal on scroll
-function revealOnScroll(){document.querySelectorAll(".reveal").forEach(el=>{const rect=el.getBoundingClientRect();if(rect.top<window.innerHeight-40){el.classList.add("reveal-visible");}});}
+// ------------------ REVEAL ON SCROLL ------------------
+function revealOnScroll(){
+  document.querySelectorAll(".reveal").forEach(el=>{
+    const rect=el.getBoundingClientRect();
+    if(rect.top<window.innerHeight-40){el.classList.add("reveal-visible");}
+  });
+}
 window.addEventListener("scroll",revealOnScroll);
 revealOnScroll();
 
-// Countdown
-function startCountdown(id,endTime){
+// ------------------ SMOOTH SCROLL ------------------
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+  anchor.addEventListener("click",function(e){
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"});
+  });
+});
+
+// ------------------ ACCORDION ------------------
+document.querySelectorAll('.accordion-header').forEach(header=>{
+  header.addEventListener('click',()=>{
+    header.nextElementSibling.style.display=
+      header.nextElementSibling.style.display==="block"?"none":"block";
+  });
+});
+
+// ------------------ COUNTDOWNS ------------------
+function startCountdown(id,endTime,ctaId,planId,isFree=false,tooltipId=null){
   const countdownEl=document.getElementById(id).querySelector("span");
+  const cta=document.getElementById(ctaId);
+  const plan=document.getElementById(planId);
+  const tooltip=tooltipId?document.getElementById(tooltipId):null;
+  let lastHourAlerted=false;
   function update(){
-    const now=new Date();const diff=endTime-now;
-    if(diff<=0){countdownEl.innerHTML='Promo Ended'; return;}
+    const now=new Date();
+    const diff=endTime-now;
+    if(diff<=0){
+      if(plan && isFree){
+        const badge=document.createElement("div");
+        badge.className="expired-badge"; badge.innerText="Promo Ended"; plan.appendChild(badge);
+        cta.innerText="Upgrade to Starter / Business"; 
+        cta.href="https://www.facebook.com/share/1AoHeVSvHa/";
+        cta.classList.remove("cta-urgent"); cta.style.pointerEvents="auto";
+        if(tooltip) tooltip.classList.remove("show");
+      }
+      clearInterval(interval); return;
+    }
     const d=Math.floor(diff/(1000*60*60*24));
     const h=Math.floor((diff/(1000*60*60))%24);
     const m=Math.floor((diff/(1000*60))%60);
     const s=Math.floor((diff/1000)%60);
     countdownEl.innerHTML=`${d}d ${h}h ${m}m ${s}s`;
+    if(diff<=86400000){countdownEl.classList.add("last-hours"); cta.classList.add("cta-urgent"); cta.innerHTML="⚡ Last Chance – Order Now"; if(tooltip) tooltip.classList.add("show");}
+    if(diff<=3600000 && !lastHourAlerted){lastHourAlerted=true;
+      const sound=document.getElementById("alert-sound");if(sound){sound.volume=0.7; sound.play().catch(()=>{});}
+      if(navigator.vibrate){navigator.vibrate([300,200,300,200,600]);}
+    }
   }
   update();
-  setInterval(update,1000);
+  const interval=setInterval(update,1000);
 }
-startCountdown("free-countdown",new Date('2025-12-25T23:59:59'));
-startCountdown("starter-countdown",new Date('2026-01-03T23:59:59'));
-startCountdown("business-countdown",new Date('2026-01-02T23:59:59'));
 
-// Promo banner
+// Example countdowns
+startCountdown("free-countdown",new Date('2025-12-25T23:59:59'),"free-cta","free-plan",true,"free-tooltip");
+startCountdown("starter-countdown",new Date('2026-01-03T23:59:59'),"starter-cta","starter-plan");
+startCountdown("business-countdown",new Date('2026-01-02T23:59:59'),"business-cta","business-plan");
+
+// Promo banner countdown
 function updatePromoCountdown(){
   const countdownEl=document.getElementById("countdown");
   const promoEnd=new Date('2026-01-03T23:59:59');
@@ -181,13 +227,31 @@ function updatePromoCountdown(){
 setInterval(updatePromoCountdown,1000);
 updatePromoCountdown();
 
-// Affiliate redirect + fake clicks
-const SHOPEE_AFFILIATE_LINK="https://s.shopee.ph/YOUR_AFFILIATE_LINK";
-let fakeClicks=152;
-function countClick(){fakeClicks+=Math.floor(Math.random()*3)+1;document.getElementById("fake-clicks").innerText=`👥 ${fakeClicks} people claimed this!`;}
-function goShopee(){countClick();window.location.replace(SHOPEE_AFFILIATE_LINK);}
-function updateFakeClicks(){fakeClicks+=Math.floor(Math.random()*3)+1;document.getElementById("fake-clicks").innerText=`👥 ${fakeClicks} people claimed this!`;setTimeout(updateFakeClicks,Math.floor(Math.random()*5000)+5000);}
-updateFakeClicks();
+// ------------------ AFFILIATE REDIRECT & TRACKING ------------------
+const SHOPEE_AFFILIATE_LINK = "https://s.shopee.ph/YOUR_AFFILIATE_LINK"; // Replace with your affiliate link
+
+function countClick() {
+  let clicks = localStorage.getItem("shopee_clicks") || 0;
+  clicks++;
+  localStorage.setItem("shopee_clicks", clicks);
+  console.log("Shopee clicks:", clicks);
+  // Optional: update visible counter
+  const el = document.getElementById("click-counter");
+  if(el) el.innerText = clicks;
+}
+
+// Optional GA / FB Pixel tracking
+/*
+function trackGA(){ if(typeof gtag==="function"){ gtag('event','affiliate_click',{event_category:'Shopee',event_label:'Shopee Affiliate Redirect'});} }
+function trackFB(){ if(typeof fbq==="function"){ fbq('track','ViewContent',{content_name:'Shopee Affiliate'});} }
+*/
+
+function goShopee(){
+  countClick();
+  // trackGA();
+  // trackFB();
+  window.location.replace(SHOPEE_AFFILIATE_LINK); // seamless redirect
+}
 </script>
 
 </body>
