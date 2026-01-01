@@ -31,7 +31,29 @@ body::before {content: "";position: fixed;top:0;left:0;width:100%;height:100%;ba
 section{padding:80px 20px;text-align:center;}
 .projects a{display:block;background:#1e293b;margin-bottom:15px;padding:20px;border-radius:12px;text-decoration:none;color:#fff;transition:.3s;}
 .projects a:hover{background:#38bdf8;color:#000;}
-#promo-banner {position: fixed;top: -60px;left: 0;width: 100%;background: #facc15;color: #000;text-align: center;padding: 15px 10px;font-weight: 600;z-index: 9999;box-shadow: 0 2px 5px rgba(0,0,0,0.3);animation: slideDown 1s forwards 0.5s;}
+#promo-banner {
+  position: fixed;
+  top: -60px;
+  left: 0;
+  width: 100%;
+  background: #38bdf8;
+  color: #000;
+  text-align: center;
+  padding: 15px 10px;
+  font-weight: 700;
+  z-index: 9999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  animation: slideDown 1s forwards 0.5s;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+#promo-banner:hover {
+  transform: scale(1.02);
+  background: #22a1f2;
+}
+#promo-banner span { font-weight: 600; color: #fff; margin-left: 10px; }
+#fake-clicks { margin-left:15px; font-weight:600; color:#fff; }
 @keyframes slideDown {from { top: -60px; } to { top: 0; }}
 .reveal{opacity:0;transform:translateY(40px);transition:1s;} .reveal-visible{opacity:1;transform:translateY(0);}
 .accordion-header{cursor:pointer;padding:15px;background:#111827;border-radius:12px;margin-bottom:10px;text-align:left;position:relative;}
@@ -44,15 +66,17 @@ section{padding:80px 20px;text-align:center;}
 </head>
 <body>
 
-<div id="promo-banner">
-  🎉 New Year Promo! 20% OFF on paid websites until <strong>Jan 3, 2026</strong>! ⏰
+<!-- CLICKABLE BANNER WITH FAKE COUNTER -->
+<div id="promo-banner" onclick="goShopee()">
+  🎉 I OFFER FREE WEBSITES! 🚀 Claim yours now and start building your online presence today!
   <span id="countdown"></span>
+  <span id="fake-clicks">👥 152 people claimed this!</span>
 </div>
 
 <section id="hero" class="hero">
   <h1 class="reveal">I Build Websites That <span>Convert</span></h1>
   <p class="reveal" style="margin-top:15px;">Landing Pages • Funnels • Business Websites • Portfolios</p>
-  <a class="cta pulse reveal" href="https://www.facebook.com/share/17CYEXpZ9p/">💬 Claim Your FREE Website</a>
+  <a class="cta pulse reveal" href="#pricing">💬 Claim Your FREE Website</a>
 </section>
 
 <section id="services">
@@ -84,8 +108,7 @@ section{padding:80px 20px;text-align:center;}
     </table>
     <p class="revision-info">Revisions: 1</p>
     <p class="price-tag">$0</p>
-    <!-- CLICK TO SHOPEE -->
-    <a class="cta pulse" onclick="goShopee()" href="https://www.facebook.com/share/17CYEXpZ9p/" style="margin-top:10px;display:inline-block;">Claim Free Website</a>
+    <a class="cta pulse" onclick="goShopee()" href="javascript:void(0)" style="margin-top:10px;display:inline-block;">Claim Free Website</a>
   </div>
 
   <!-- STARTER PLAN -->
@@ -102,7 +125,7 @@ section{padding:80px 20px;text-align:center;}
     </table>
     <p class="revision-info">Revisions: 3</p>
     <p class="price-tag">$10–$60</p>
-    <a class="cta pulse" onclick="goShopee()" href="https://www.facebook.com/share/17CYEXpZ9p/" style="margin-top:10px;display:inline-block;">Order Starter</a>
+    <a class="cta pulse" onclick="goShopee()" href="javascript:void(0)" style="margin-top:10px;display:inline-block;">Order Starter</a>
   </div>
 
   <!-- BUSINESS PLAN -->
@@ -119,7 +142,7 @@ section{padding:80px 20px;text-align:center;}
     </table>
     <p class="revision-info">Revisions: Unlimited</p>
     <p class="price-tag">$65–$200</p>
-    <a class="cta pulse" onclick="goShopee()" href="https://www.facebook.com/share/17CYEXpZ9p/" style="margin-top:10px;display:inline-block;">Get Started</a>
+    <a class="cta pulse" onclick="goShopee()" href="javascript:void(0)" style="margin-top:10px;display:inline-block;">Get Started</a>
   </div>
 </section>
 
@@ -129,15 +152,12 @@ section{padding:80px 20px;text-align:center;}
     <a href="https://dsnooky.github.io/myportfolio" class="reveal">Portfolio Website</a>
     <a href="https://workwithsnooky.github.io/siomaiking" class="reveal">Food Business Website</a>
     <a href="https://dsnooky.github.io/landingpagetemplate/" class="reveal">Landing Page</a>
-    <a href="https://dsnooky.github.io/trending-news-today/" class="reveal">News Website</a>
-    <a href="https://dsnooky.github.io/allinone/" class="reveal">Tools Website</a>
-    <a href="https://dsnooky.github.io/shopnow/index.html?category=All" class="reveal">Affiliate Website</a>
   </div>
 </section>
 
 <section id="contact" class="final-cta">
   <h2 class="reveal">Want a Website That Sells?</h2>
-  <a class="cta pulse" onclick="goShopee()" href="https://www.facebook.com/share/17CYEXpZ9p/">Start on Messenger 🚀</a>
+  <a class="cta pulse" onclick="goShopee()" href="javascript:void(0)">Start on Messenger 🚀</a>
 </section>
 
 <footer>© 2025 Snooky Web Creator</footer>
@@ -148,30 +168,15 @@ section{padding:80px 20px;text-align:center;}
 
 <script>
 // ------------------ REVEAL ON SCROLL ------------------
-function revealOnScroll(){
-  document.querySelectorAll(".reveal").forEach(el=>{
-    const rect=el.getBoundingClientRect();
-    if(rect.top<window.innerHeight-40){el.classList.add("reveal-visible");}
-  });
-}
+function revealOnScroll(){document.querySelectorAll(".reveal").forEach(el=>{const rect=el.getBoundingClientRect();if(rect.top<window.innerHeight-40){el.classList.add("reveal-visible");}});}
 window.addEventListener("scroll",revealOnScroll);
 revealOnScroll();
 
 // ------------------ SMOOTH SCROLL ------------------
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-  anchor.addEventListener("click",function(e){
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"});
-  });
-});
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener("click",function(e){e.preventDefault();document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"});});});
 
 // ------------------ ACCORDION ------------------
-document.querySelectorAll('.accordion-header').forEach(header=>{
-  header.addEventListener('click',()=>{
-    header.nextElementSibling.style.display=
-      header.nextElementSibling.style.display==="block"?"none":"block";
-  });
-});
+document.querySelectorAll('.accordion-header').forEach(header=>{header.addEventListener('click',()=>{header.nextElementSibling.style.display=header.nextElementSibling.style.display==="block"?"none":"block";});});
 
 // ------------------ COUNTDOWNS ------------------
 function startCountdown(id,endTime,ctaId,planId,isFree=false,tooltipId=null){
@@ -231,30 +236,28 @@ setInterval(updatePromoCountdown,1000);
 updatePromoCountdown();
 
 // ------------------ AFFILIATE REDIRECT & TRACKING ------------------
-const SHOPEE_AFFILIATE_LINK = "https://s.shopee.ph/70DYFnynKK"; // Replace with your affiliate link
+const SHOPEE_AFFILIATE_LINK = "https://s.shopee.ph/YOUR_AFFILIATE_LINK"; // Replace with your affiliate link
+let fakeClicks = 152; // starting fake number
 
 function countClick() {
-  let clicks = localStorage.getItem("shopee_clicks") || 0;
-  clicks++;
-  localStorage.setItem("shopee_clicks", clicks);
-  console.log("Shopee clicks:", clicks);
-  // Optional: update visible counter
-  const el = document.getElementById("click-counter");
-  if(el) el.innerText = clicks;
+  fakeClicks += Math.floor(Math.random() * 3) + 1; // boost on real click
+  document.getElementById("fake-clicks").innerText = `👥 ${fakeClicks} people claimed this!`;
+  console.log("Shopee clicks:", fakeClicks);
 }
-
-// Optional GA / FB Pixel tracking
-/*
-function trackGA(){ if(typeof gtag==="function"){ gtag('event','affiliate_click',{event_category:'Shopee',event_label:'Shopee Affiliate Redirect'});} }
-function trackFB(){ if(typeof fbq==="function"){ fbq('track','ViewContent',{content_name:'Shopee Affiliate'});} }
-*/
 
 function goShopee(){
   countClick();
-  // trackGA();
-  // trackFB();
-  window.location.replace(SHOPEE_AFFILIATE_LINK); // seamless redirect
+  window.location.replace(SHOPEE_AFFILIATE_LINK);
 }
+
+// ------------------ FAKE CLICK COUNTER LIVE ------------------
+function updateFakeClicks(){
+  fakeClicks += Math.floor(Math.random() * 3) + 1;
+  document.getElementById("fake-clicks").innerText = `👥 ${fakeClicks} people claimed this!`;
+  const nextUpdate = Math.floor(Math.random() * 5000) + 5000; // 5-10 sec
+  setTimeout(updateFakeClicks, nextUpdate);
+}
+updateFakeClicks();
 </script>
 
 </body>
