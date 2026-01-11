@@ -3,31 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Website Creator | Snooky</title>
+<title>Snooky | Website Creator</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
 <style>
+/* ---------------- GENERAL ---------------- */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{
-  background: url('https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
-  background-size: cover;
-  color:#fff;
-  line-height:1.6;
-  position: relative;
-  scroll-behavior: smooth;
-}
-body::before {
-  content: "";
-  position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.55); /* dark overlay for readability */
-  z-index: -1;
-}
+body{background:#0f172a;color:#fff;line-height:1.6;scroll-behavior:smooth;}
+a{text-decoration:none;}
+section{padding:80px 20px;text-align:center;}
 
-/* HERO SECTION */
+/* ---------------- HERO ---------------- */
 .hero{
   min-height:100vh;
   display:flex;
@@ -35,152 +20,137 @@ body::before {
   justify-content:center;
   align-items:center;
   text-align:center;
-  padding: 0 20px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+              url('https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+  color:#fff;
 }
-.hero h1{
-  font-size:3rem;
-  font-weight:700;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-}
+.hero h1{font-size:3rem;font-weight:700;margin-bottom:15px;animation:fadeUp 1s ease-out;}
 .hero span{color:#38bdf8;}
-.hero p{
-  margin-top:15px;
-  opacity:0.95;
-  font-size:1.2rem;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-}
+.hero p{font-size:1.2rem;margin-bottom:25px;opacity:0.9;animation:fadeUp 1s ease-out 0.2s;animation-fill-mode:both;}
 .cta{
-  margin-top:25px;
-  padding:18px 40px;
-  background:#38bdf8;
-  color:#000;
-  text-decoration:none;
-  border-radius:50px;
-  font-weight:600;
-  font-size:1.1rem;
-  transition:.3s;
   display:inline-block;
+  padding:18px 40px;
+  background: linear-gradient(90deg,#38bdf8,#0ea5e9);
+  color:#000;
+  font-weight:600;
+  border-radius:50px;
+  transition:transform .3s,box-shadow .3s;
+  animation:fadeUp 1s ease-out 0.4s;animation-fill-mode:both;
 }
-.cta:hover{transform:scale(1.05);}
+.cta:hover{transform:scale(1.05);box-shadow:0 10px 20px rgba(0,0,0,0.3);}
+
+/* ---------------- CARDS ---------------- */
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
   margin-top:40px;
 }
 .card{
   background:#1e293b;
-  padding:25px;
+  padding:30px;
   border-radius:15px;
-  transition:.3s;
-  position:relative;
+  transition:transform .3s, box-shadow .3s;
   font-size:1rem;
-  line-height:1.5;
-  text-align:center;
+  position:relative;
+  opacity:0;
+  transform:translateY(40px);
 }
-.card:hover{transform:translateY(-10px);}
-.popular-badge{
-  position:absolute;
-  top:18px;
-  right:18px;
-  background:#facc15;
-  color:#000;
-  font-size:.8rem;
-  font-weight:700;
-  padding:6px 12px;
-  border-radius:999px;
-  box-shadow:0 4px 10px rgba(0,0,0,.3);
-}
-.feature-yes::before{content:"✅";margin-right:8px;}
-.feature-no::before{content:"❌";margin-right:8px;opacity:.7;}
-.upgrade-note{margin-top:8px;font-size:.85rem;color:#facc15;font-weight:600;text-align:left;opacity:.9;}
-.revision-info{margin-top:8px;font-size:.9rem;color:#38bdf8;font-weight:600;text-align:left;}
-.price-tag{font-weight:700;color:#facc15;font-size:1.3rem;margin-top:8px;}
+.card:hover{transform:translateY(-10px);box-shadow:0 10px 20px rgba(0,0,0,0.5);}
+.card.visible{opacity:1;transform:translateY(0);transition:all .8s ease-out;}
 
-/* ACCORDION */
+/* ---------------- ACCORDION ---------------- */
 .accordion-header{
   cursor:pointer;
   padding:18px;
   background:#111827;
   border-radius:12px;
   margin-bottom:10px;
-  text-align:left;
-  font-size:1.1rem;
   font-weight:600;
+  font-size:1.1rem;
+  transition:background .3s;
 }
-.accordion-header .badge{position:absolute;right:15px;top:15px;}
+.accordion-header:hover{background:#1e293b;}
 .accordion-content{
-  display:block; /* always visible for mobile readability */
-  padding:15px;
+  display:none;
+  padding:20px;
   background:#1e293b;
   border-radius:12px;
-  margin-bottom:15px;
   font-size:1rem;
-  line-height:1.5;
+  line-height:1.6;
+  margin-bottom:20px;
 }
-.accordion-content table{
-  margin-top:10px;
-  width:100%;
-  text-align:left;
-}
+
+/* ---------------- TABLE ---------------- */
+.accordion-content table{width:100%;margin-top:10px;text-align:left;}
+.feature-yes::before{content:"✅ ";color:#38bdf8;}
+.feature-no::before{content:"❌ ";opacity:.7;}
+.price-tag{color:#facc15;font-weight:700;font-size:1.3rem;margin-top:8px;}
+.revision-info{color:#38bdf8;font-weight:600;margin-top:5px;}
+.upgrade-note{color:#facc15;font-weight:600;font-size:.85rem;}
+
+/* ---------------- PORTFOLIO ---------------- */
 .projects a{
   display:block;
-  background:#1e293b;
   margin-bottom:15px;
   padding:20px;
+  background:#1e293b;
   border-radius:12px;
-  text-decoration:none;
-  color:#fff;
-  font-size:1.05rem;
-  transition:.3s;
-  text-align:center;
+  transition:transform .3s, background .3s;
 }
-.projects a:hover{background:#38bdf8;color:#000;}
-section{padding:60px 20px;text-align:center;}
-.reveal{opacity:0;transform:translateY(20px);transition:1s;} 
-.reveal-visible{opacity:1;transform:translateY(0);}
+.projects a:hover{transform:scale(1.03);background:#38bdf8;color:#000;}
 
+/* ---------------- FOOTER ---------------- */
+footer{padding:20px;font-size:.9rem;color:#94a3b8;opacity:0.9;}
+
+/* ---------------- ANIMATIONS ---------------- */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* ---------------- RESPONSIVE ---------------- */
 @media(max-width:768px){
   .hero h1{font-size:2.2rem;}
   .hero p{font-size:1rem;}
   .cta{padding:15px 30px;font-size:1rem;}
-  .card{padding:20px;font-size:0.95rem;}
-  .accordion-header{font-size:1rem;}
-  .accordion-content{font-size:0.95rem;}
+  .cards{grid-template-columns:1fr;}
 }
 @media(max-width:480px){
   .hero h1{font-size:1.8rem;}
   .hero p{font-size:0.95rem;}
   .cta{padding:12px 25px;font-size:0.95rem;}
-  .card{padding:15px;font-size:0.9rem;}
 }
 </style>
 </head>
 <body>
 
-<section id="hero" class="hero">
-  <h1 class="reveal">I Build Websites That <span>Convert</span></h1>
-  <p class="reveal">Landing Pages • Funnels • Business Websites • Portfolios</p>
-  <a class="cta pulse reveal" href="#pricing">💬 Claim Your FREE Website</a>
+<!-- HERO -->
+<section class="hero">
+  <h1>I Build Websites That <span>Convert</span></h1>
+  <p>Landing Pages • Funnels • Business Websites • Portfolios</p>
+  <a class="cta" href="#pricing">💬 Claim Your FREE Website</a>
 </section>
 
+<!-- SERVICES -->
 <section id="services">
-  <h2 class="reveal">What I Create</h2>
+  <h2>What I Create</h2>
   <div class="cards">
-    <div class="card reveal">🚀 Landing Pages</div>
-    <div class="card reveal">🛒 Affiliate Funnels</div>
-    <div class="card reveal">🏪 Business Websites</div>
-    <div class="card reveal">💬 Portfolio Website</div>
+    <div class="card">🚀 Landing Pages</div>
+    <div class="card">🛒 Affiliate Funnels</div>
+    <div class="card">🏪 Business Websites</div>
+    <div class="card">💬 Portfolio Website</div>
   </div>
 </section>
 
+<!-- PRICING -->
 <section id="pricing">
-  <h2 class="reveal">Pricing</h2>
-  <p class="reveal" style="opacity:.85; margin-top:10px;">Start for free. Upgrade anytime when you’re ready to grow.</p>
+  <h2>Pricing</h2>
+  <p style="opacity:.85;">Start for free. Upgrade anytime when you’re ready to grow.</p>
 
-  <!-- FREE PLAN -->
-  <div class="accordion-header reveal">🎁 Free Website</div>
-  <div class="accordion-content reveal" id="free-plan">
+  <!-- FREE -->
+  <div class="accordion-header">🎁 Free Website</div>
+  <div class="accordion-content">
     <p>Perfect for beginners | <span class="upgrade-note">🎯 Upgrade anytime!</span></p>
     <table>
       <tr><td class="feature-yes">1 Page Website</td></tr>
@@ -192,12 +162,12 @@ section{padding:60px 20px;text-align:center;}
     </table>
     <p class="revision-info">Revisions: 1</p>
     <p class="price-tag">$0</p>
-    <a class="cta pulse" onclick="goShopee()" href="https://www.facebook.com/share/1AoHeVSvHa/">Claim Free Website</a>
+    <a class="cta" onclick="goShopee()" href="#">Claim Free Website</a>
   </div>
 
-  <!-- STARTER PLAN -->
-  <div class="accordion-header reveal">✨ Starter Website <span class="badge">Most Popular</span></div>
-  <div class="accordion-content reveal" id="starter-plan">
+  <!-- STARTER -->
+  <div class="accordion-header">✨ Starter Website <span class="badge">Most Popular</span></div>
+  <div class="accordion-content">
     <p>For freelancers & small businesses</p>
     <table>
       <tr><td class="feature-yes">3–5 Pages</td></tr>
@@ -208,12 +178,12 @@ section{padding:60px 20px;text-align:center;}
     </table>
     <p class="revision-info">Revisions: 3</p>
     <p class="price-tag">$10–$60</p>
-    <a class="cta pulse" onclick="goShopee()" href="https://www.facebook.com/share/1AoHeVSvHa/">Order Starter</a>
+    <a class="cta" onclick="goShopee()" href="#">Order Starter</a>
   </div>
 
-  <!-- BUSINESS PLAN -->
-  <div class="accordion-header reveal">🏢 Business Website</div>
-  <div class="accordion-content reveal" id="business-plan">
+  <!-- BUSINESS -->
+  <div class="accordion-header">🏢 Business Website</div>
+  <div class="accordion-content">
     <p>For growing brands</p>
     <table>
       <tr><td class="feature-yes">Custom Pages & Layout</td></tr>
@@ -224,27 +194,41 @@ section{padding:60px 20px;text-align:center;}
     </table>
     <p class="revision-info">Revisions: Unlimited</p>
     <p class="price-tag">$65–$200</p>
-    <a class="cta pulse" onclick="goShopee()" href="https://www.facebook.com/share/1AoHeVSvHa/">Get Started</a>
+    <a class="cta" onclick="goShopee()" href="#">Get Started</a>
   </div>
 </section>
 
+<!-- PORTFOLIO -->
 <section id="portfolio">
-  <h2 class="reveal">Live Projects</h2>
+  <h2>Live Projects</h2>
   <div class="projects">
-    <a href="https://dsnooky.github.io/myportfolio" class="reveal">Portfolio Website</a>
-    <a href="https://workwithsnooky.github.io/siomaiking" class="reveal">Food Business Website</a>
-    <a href="https://dsnooky.github.io/landingpagetemplate/" class="reveal">Landing Page</a>
+    <a href="#">Portfolio Website</a>
+    <a href="#">Food Business Website</a>
+    <a href="#">Landing Page</a>
   </div>
 </section>
 
-<section id="contact" class="final-cta">
-  <h2 class="reveal">Want a Website That Sells?</h2>
-  <a class="cta pulse" onclick="goShopee()" href="https://www.facebook.com/share/1AoHeVSvHa/">Start on Messenger 🚀</a>
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Want a Website That Sells?</h2>
+  <a class="cta" onclick="goShopee()" href="#">Start on Messenger 🚀</a>
 </section>
 
-<footer>© 2025 Snooky Web Creator</footer>
+<footer>© 2026 Snooky Web Creator</footer>
 
 <script>
+// REVEAL CARDS
+function revealCards(){
+  const cards=document.querySelectorAll(".card");
+  cards.forEach(card=>{
+    const rect=card.getBoundingClientRect();
+    if(rect.top<window.innerHeight-50){card.classList.add("visible");}
+  });
+}
+window.addEventListener("scroll",revealCards);
+revealCards();
+
+// ACCORDION
 document.querySelectorAll('.accordion-header').forEach(header=>{
   header.addEventListener('click',()=>{
     const content = header.nextElementSibling;
@@ -252,13 +236,8 @@ document.querySelectorAll('.accordion-header').forEach(header=>{
   });
 });
 
-const SHOPEE_AFFILIATE_LINK = "https://s.shopee.ph/YOUR_AFFILIATE_LINK";
-function countClick() {
-  let clicks = localStorage.getItem("shopee_clicks") || 0;
-  clicks++;
-  localStorage.setItem("shopee_clicks", clicks);
-}
-function goShopee(){countClick(); window.location.replace(SHOPEE_AFFILIATE_LINK);}
+// AFFILIATE REDIRECT
+function goShopee(){window.location.href="#";}
 </script>
 
 </body>
