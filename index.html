@@ -1,243 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Snooky | Website Creator</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+
+  <!-- SEO -->
+  <title>Professional Website Services | Affordable Web Design</title>
+  <meta name="description" content="Affordable, fast, and mobile-friendly website design services. Business websites, landing pages, and affiliate shopping sites.">
+  <meta name="keywords" content="website design, web developer, business website, affiliate website, landing page">
+  <meta name="author" content="Snooky Web Services">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Professional Website Services">
+  <meta property="og:description" content="Get a fast, modern, and responsive website for your business.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 <style>
-/* ---------------- GENERAL ---------------- */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#0f172a;color:#fff;line-height:1.6;scroll-behavior:smooth;}
-a{text-decoration:none;}
-section{padding:80px 20px;text-align:center;}
+:root {
+  --primary:#2563eb;
+  --dark:#0f172a;
+  --light:#f8fafc;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{background:var(--light);color:var(--dark);line-height:1.6}
+a{text-decoration:none}
 
-/* ---------------- HERO ---------------- */
-.hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-              url('https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+header{
+  background:linear-gradient(135deg,#2563eb,#1e40af);
   color:#fff;
+  padding:90px 20px;
+  text-align:center;
 }
-.hero h1{font-size:3rem;font-weight:700;margin-bottom:15px;animation:fadeUp 1s ease-out;}
-.hero span{color:#38bdf8;}
-.hero p{font-size:1.2rem;margin-bottom:25px;opacity:0.9;animation:fadeUp 1s ease-out 0.2s;animation-fill-mode:both;}
-.cta{
-  display:inline-block;
-  padding:18px 40px;
-  background: linear-gradient(90deg,#38bdf8,#0ea5e9);
-  color:#000;
-  font-weight:600;
-  border-radius:50px;
-  transition:transform .3s,box-shadow .3s;
-  animation:fadeUp 1s ease-out 0.4s;animation-fill-mode:both;
-}
-.cta:hover{transform:scale(1.05);box-shadow:0 10px 20px rgba(0,0,0,0.3);}
+header h1{font-size:2.5rem}
+header p{max-width:600px;margin:15px auto;opacity:.9}
 
-/* ---------------- CARDS ---------------- */
-.cards{
+.btn{
+  display:inline-block;
+  background:#fff;
+  color:var(--primary);
+  padding:12px 32px;
+  border-radius:30px;
+  font-weight:600;
+  transition:.3s;
+}
+.btn:hover{transform:translateY(-3px)}
+
+section{padding:70px 20px;max-width:1100px;margin:auto}
+h2{text-align:center;font-size:2rem;margin-bottom:40px}
+
+/* SERVICES */
+.services,.portfolio,.pricing{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:25px;
-  margin-top:40px;
 }
 .card{
-  background:#1e293b;
+  background:#fff;
   padding:30px;
-  border-radius:15px;
-  transition:transform .3s, box-shadow .3s;
-  font-size:1rem;
-  position:relative;
-  opacity:0;
-  transform:translateY(40px);
+  border-radius:18px;
+  box-shadow:0 15px 30px rgba(0,0,0,.08);
+  transition:.3s;
 }
-.card:hover{transform:translateY(-10px);box-shadow:0 10px 20px rgba(0,0,0,0.5);}
-.card.visible{opacity:1;transform:translateY(0);transition:all .8s ease-out;}
+.card:hover{transform:translateY(-8px)}
+.card h3{color:var(--primary);margin-bottom:10px}
 
-/* ---------------- ACCORDION ---------------- */
-.accordion-header{
-  cursor:pointer;
-  padding:18px;
-  background:#111827;
+/* PORTFOLIO */
+.portfolio img{
+  width:100%;
   border-radius:12px;
-  margin-bottom:10px;
+}
+.portfolio a{
+  color:var(--primary);
   font-weight:600;
-  font-size:1.1rem;
-  transition:background .3s;
-}
-.accordion-header:hover{background:#1e293b;}
-.accordion-content{
-  display:none;
-  padding:20px;
-  background:#1e293b;
-  border-radius:12px;
-  font-size:1rem;
-  line-height:1.6;
-  margin-bottom:20px;
 }
 
-/* ---------------- TABLE ---------------- */
-.accordion-content table{width:100%;margin-top:10px;text-align:left;}
-.feature-yes::before{content:"✅ ";color:#38bdf8;}
-.feature-no::before{content:"❌ ";opacity:.7;}
-.price-tag{color:#facc15;font-weight:700;font-size:1.3rem;margin-top:8px;}
-.revision-info{color:#38bdf8;font-weight:600;margin-top:5px;}
-.upgrade-note{color:#facc15;font-weight:600;font-size:.85rem;}
-
-/* ---------------- PORTFOLIO ---------------- */
-.projects a{
-  display:block;
-  margin-bottom:15px;
-  padding:20px;
-  background:#1e293b;
-  border-radius:12px;
-  transition:transform .3s, background .3s;
+/* PRICING */
+.price{
+  font-size:2.2rem;
+  font-weight:700;
+  margin:15px 0;
 }
-.projects a:hover{transform:scale(1.03);background:#38bdf8;color:#000;}
+.card ul{list-style:none;margin-top:15px}
+.card li{margin-bottom:8px}
 
-/* ---------------- FOOTER ---------------- */
-footer{padding:20px;font-size:.9rem;color:#94a3b8;opacity:0.9;}
-
-/* ---------------- ANIMATIONS ---------------- */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px);}
-  to{opacity:1;transform:translateY(0);}
+/* CTA */
+.cta{
+  background:var(--dark);
+  color:#fff;
+  text-align:center;
+  padding:70px 20px;
+  border-radius:20px;
 }
 
-/* ---------------- RESPONSIVE ---------------- */
-@media(max-width:768px){
-  .hero h1{font-size:2.2rem;}
-  .hero p{font-size:1rem;}
-  .cta{padding:15px 30px;font-size:1rem;}
-  .cards{grid-template-columns:1fr;}
-}
-@media(max-width:480px){
-  .hero h1{font-size:1.8rem;}
-  .hero p{font-size:0.95rem;}
-  .cta{padding:12px 25px;font-size:0.95rem;}
+/* FOOTER */
+footer{text-align:center;padding:20px;font-size:14px;opacity:.7}
+
+@media(max-width:600px){
+  header h1{font-size:2rem}
 }
 </style>
 </head>
+
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>I Build Websites That <span>Convert</span></h1>
-  <p>Landing Pages • Funnels • Business Websites • Portfolios</p>
-  <a class="cta" href="#pricing">💬 Claim Your FREE Website</a>
-</section>
+<header>
+  <h1 data-aos="fade-down">Professional Website Services</h1>
+  <p data-aos="fade-up">Modern, fast, and mobile-friendly websites that convert visitors into customers.</p>
+  <a href="#pricing" class="btn" data-aos="zoom-in">View Pricing</a>
+</header>
 
 <!-- SERVICES -->
-<section id="services">
-  <h2>What I Create</h2>
-  <div class="cards">
-    <div class="card">🚀 Landing Pages</div>
-    <div class="card">🛒 Affiliate Funnels</div>
-    <div class="card">🏪 Business Websites</div>
-    <div class="card">💬 Portfolio Website</div>
+<section>
+  <h2 data-aos="fade-up">Services</h2>
+  <div class="services">
+    <div class="card" data-aos="fade-up">
+      <h3>Business Websites</h3>
+      <p>Professional sites for brands and small businesses.</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="100">
+      <h3>Affiliate / Shopping</h3>
+      <p>Monetized shopping & affiliate websites.</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="200">
+      <h3>Landing Pages</h3>
+      <p>High-converting pages for promotions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section>
+  <h2 data-aos="fade-up">Portfolio / Demo</h2>
+  <div class="portfolio">
+    <div class="card" data-aos="zoom-in">
+      <img src="https://via.placeholder.com/400x250" alt="Demo Website">
+      <h3>Business Website</h3>
+      <a href="#">View Demo</a>
+    </div>
+    <div class="card" data-aos="zoom-in" data-aos-delay="100">
+      <img src="https://via.placeholder.com/400x250" alt="Affiliate Site">
+      <h3>Shopping Affiliate</h3>
+      <a href="#">View Demo</a>
+    </div>
+    <div class="card" data-aos="zoom-in" data-aos-delay="200">
+      <img src="https://via.placeholder.com/400x250" alt="Landing Page">
+      <h3>Landing Page</h3>
+      <a href="#">View Demo</a>
+    </div>
   </div>
 </section>
 
 <!-- PRICING -->
 <section id="pricing">
-  <h2>Pricing</h2>
-  <p style="opacity:.85;">Start for free. Upgrade anytime when you’re ready to grow.</p>
-
-  <!-- FREE -->
-  <div class="accordion-header">🎁 Free Website</div>
-  <div class="accordion-content">
-    <p>Perfect for beginners | <span class="upgrade-note">🎯 Upgrade anytime!</span></p>
-    <table>
-      <tr><td class="feature-yes">1 Page Website</td></tr>
-      <tr><td class="feature-yes">Mobile Responsive</td></tr>
-      <tr><td class="feature-yes">Stock Images</td></tr>
-      <tr><td class="feature-yes">Messenger Button</td></tr>
-      <tr><td class="feature-no">Custom Domain</td></tr>
-      <tr><td class="feature-no">SEO Setup</td></tr>
-    </table>
-    <p class="revision-info">Revisions: 1</p>
-    <p class="price-tag">$0</p>
-    <a class="cta" onclick="goShopee()" href="#">Claim Free Website</a>
-  </div>
-
-  <!-- STARTER -->
-  <div class="accordion-header">✨ Starter Website <span class="badge">Most Popular</span></div>
-  <div class="accordion-content">
-    <p>For freelancers & small businesses</p>
-    <table>
-      <tr><td class="feature-yes">3–5 Pages</td></tr>
-      <tr><td class="feature-yes">Custom Design</td></tr>
-      <tr><td class="feature-yes">SEO Ready</td></tr>
-      <tr><td class="feature-yes">Contact Form</td></tr>
-      <tr><td class="feature-yes">Messenger Integration</td></tr>
-    </table>
-    <p class="revision-info">Revisions: 3</p>
-    <p class="price-tag">$10–$60</p>
-    <a class="cta" onclick="goShopee()" href="#">Order Starter</a>
-  </div>
-
-  <!-- BUSINESS -->
-  <div class="accordion-header">🏢 Business Website</div>
-  <div class="accordion-content">
-    <p>For growing brands</p>
-    <table>
-      <tr><td class="feature-yes">Custom Pages & Layout</td></tr>
-      <tr><td class="feature-yes">SEO Optimization</td></tr>
-      <tr><td class="feature-yes">Analytics Setup</td></tr>
-      <tr><td class="feature-yes">Messenger Automation</td></tr>
-      <tr><td class="feature-yes">Optional Payment Integration</td></tr>
-    </table>
-    <p class="revision-info">Revisions: Unlimited</p>
-    <p class="price-tag">$65–$200</p>
-    <a class="cta" onclick="goShopee()" href="#">Get Started</a>
+  <h2 data-aos="fade-up">Pricing</h2>
+  <div class="pricing">
+    <div class="card" data-aos="fade-up">
+      <h3>Starter</h3>
+      <p class="price">₱2,999</p>
+      <ul>
+        <li>✔ 1 Page Website</li>
+        <li>✔ Mobile Friendly</li>
+        <li>✔ Free Hosting Guide</li>
+      </ul>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="100">
+      <h3>Business</h3>
+      <p class="price">₱5,999</p>
+      <ul>
+        <li>✔ Up to 5 Pages</li>
+        <li>✔ SEO Optimized</li>
+        <li>✔ Contact Form</li>
+      </ul>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="200">
+      <h3>Pro</h3>
+      <p class="price">₱9,999</p>
+      <ul>
+        <li>✔ Affiliate / Shop Site</li>
+        <li>✔ Speed Optimized</li>
+        <li>✔ Monetization Setup</li>
+      </ul>
+    </div>
   </div>
 </section>
 
-<!-- PORTFOLIO -->
-<section id="portfolio">
-  <h2>Live Projects</h2>
-  <div class="projects">
-    <a href="#">Portfolio Website</a>
-    <a href="#">Food Business Website</a>
-    <a href="#">Landing Page</a>
-  </div>
+<!-- CTA -->
+<section class="cta" data-aos="zoom-in">
+  <h2>Let’s Build Your Website</h2>
+  <p>Message me today and start your online presence.</p>
+  <a href="https://facebook.com" class="btn">Contact Me</a>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <h2>Want a Website That Sells?</h2>
-  <a class="cta" onclick="goShopee()" href="#">Start on Messenger 🚀</a>
-</section>
+<footer>
+© 2026 Snooky Web Services
+</footer>
 
-<footer>© 2026 Snooky Web Creator</footer>
-
+<!-- AOS SCRIPT -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-// REVEAL CARDS
-function revealCards(){
-  const cards=document.querySelectorAll(".card");
-  cards.forEach(card=>{
-    const rect=card.getBoundingClientRect();
-    if(rect.top<window.innerHeight-50){card.classList.add("visible");}
+  AOS.init({
+    duration: 900,
+    once: true
   });
-}
-window.addEventListener("scroll",revealCards);
-revealCards();
-
-// ACCORDION
-document.querySelectorAll('.accordion-header').forEach(header=>{
-  header.addEventListener('click',()=>{
-    const content = header.nextElementSibling;
-    content.style.display = content.style.display === "block" ? "none" : "block";
-  });
-});
-
-// AFFILIATE REDIRECT
-function goShopee(){window.location.href="#";}
 </script>
 
 </body>
